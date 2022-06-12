@@ -2,7 +2,7 @@
  * Header file for: hil/Controller
  * Generated with : PLECS 4.6.4
  *                  TI2806x 1.5.4
- * Generated on   : 11 Jun 2022 16:38:26
+ * Generated on   : 12 Jun 2022 18:39:52
  */
 #ifndef PLECS_HEADER_Controller_h_
 #define PLECS_HEADER_Controller_h_

@@ -2,7 +2,7 @@
  * Implementation file for: hil/Controller
  * Generated with         : PLECS 4.6.4
  *                          TI2806x 1.5.4
- * Generated on           : 11 Jun 2022 16:38:26
+ * Generated on           : 12 Jun 2022 18:39:52
  */
 #include "Controller.h"
 #ifndef PLECS_HEADER_Controller_h_
@@ -112,7 +112,7 @@ const float * const Controller_ExtModeSignals[] = {
    &Controller_B.Saturation,
    &Controller_B.Fcn,
    &Controller_B.ADC[3],
-   &Controller_B.Controller_i1[0],
+   &Controller_B.Controller_i1[1],
    &Controller_B.ADC[0],
    &Controller_B.ADC[1],
    &Controller_B.ADC[2],
@@ -229,7 +229,7 @@ void Controller_initialize(float time)
          2
       };
       static const float* inputPtrs[] = {
-         &Controller_B.Controller_i4[1], &Controller_B.Controller_i4[0]
+         &Controller_B.Controller_i4[0], &Controller_B.Controller_i4[2]
       };
       static const float** inputs[] = {
          &inputPtrs[0]
@@ -352,7 +352,7 @@ void Controller_step(int task_id)
       Controller_B.En = PLXHAL_DIO_get(0);
 
       /* Function : 'Controller/Current\nreference/Fcn' */
-      Controller_B.Fcn = Controller_B.Controller_i1[1] * Controller_B.ADC[2];
+      Controller_B.Fcn = Controller_B.Controller_i1[0] * Controller_B.ADC[2];
 
       /* Sum : 'Controller/Sum1' */
       Controller_B.Sum1 = Controller_B.Fcn - Controller_B.ADC[3];
@@ -450,9 +450,9 @@ void Controller_step(int task_id)
       {
 
          /* Task transfer to 'MPP Control Task' (Zero-Order Hold) */
-         Controller_B.Controller_i4[0] = Controller_B.ADC[1];
-         Controller_B.Controller_i4[1] = Controller_B.Saturation;
-         Controller_B.Controller_i4[2] = Controller_B.En;
+         Controller_B.Controller_i4[0] = Controller_B.Saturation;
+         Controller_B.Controller_i4[1] = Controller_B.En;
+         Controller_B.Controller_i4[2] = Controller_B.ADC[1];
       }
       if (Controller_errorStatus)
       {
@@ -578,8 +578,8 @@ void Controller_step(int task_id)
                           ((0.f*
                             Controller_B.s_2) + (94.2748182f*Controller_B.s));
       /* Task transfer to 'Base Task' (Unit Delay) */
-      Controller_D_float[1] = Controller_B.Saturation_2;
-      Controller_D_float[2] = 0.00307692308f*Controller_B.Saturation_2;
+      Controller_D_float[1] = 0.00307692308f*Controller_B.Saturation_2;
+      Controller_D_float[2] = Controller_B.Saturation_2;
       if (Controller_errorStatus)
       {
          return;
@@ -632,7 +632,7 @@ void Controller_step(int task_id)
 
       /* Integrator : 'Controller/MPP\ncontroller/Integrator' */
       if ((!Controller_X.Integrator_1_prevReset &&
-           Controller_B.Controller_i4[2]))
+           Controller_B.Controller_i4[1]))
       {
          Controller_X.Integrator_1_x = 388.f;
       }
@@ -653,8 +653,6 @@ void Controller_step(int task_id)
 
       /* Gain : 'Controller/MPP\ncontroller/ki' */
       Controller_B.ki = 10.f*Controller_B.dP_dVCalc;
-      /* Task transfer to 'Base Task' (Unit Delay) */
-      Controller_D_float[0] = Controller_B.Integrator_1;
       /* Task transfer to 'Voltage Control Task' (Double Buffer) */
       {
          bool flag = Controller_Sema[0];
@@ -668,6 +666,8 @@ void Controller_step(int task_id)
          }
          Controller_Sema[0] = !flag;
       }
+      /* Task transfer to 'Base Task' (Unit Delay) */
+      Controller_D_float[0] = Controller_B.Integrator_1;
       if (Controller_errorStatus)
       {
          return;
@@ -677,7 +677,7 @@ void Controller_step(int task_id)
        * incorporates
        *  Subsystem : 'Controller'
        */
-      Controller_X.Integrator_1_prevReset = !!(Controller_B.Controller_i4[2]);
+      Controller_X.Integrator_1_prevReset = !!(Controller_B.Controller_i4[1]);
 
       /* Update for C-Script : 'Controller/MPP\ncontroller/dP\/dV calc' */
       Controller_0_cScriptUpdate(&Controller_cScriptStruct[0]);
