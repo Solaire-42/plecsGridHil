@@ -6,123 +6,211 @@
 - 12 (epwm_basic): EPWM implicitly created for channel 2, pwm 4.
 - 14 (epwm): EPWM5 implicitly created.
 - 12 (epwm_basic): EPWM implicitly created for channel 3, pwm 5.
-- 07 (epwm_basic): Offered trigger generator at 5000.000000 Hz
-New best fit for default triggering block: bid=7, Ts=2.000000e-04, Ferror=0.000000e+00
-- 12 (epwm_basic): Offered trigger generator at 2500.000000 Hz
+- 07 (epwm_basic): Offered trigger generator at 20000.000000 Hz
+New best fit for default triggering block: bid=7, Ts=5.000000e-05, Ferror=0.000000e+00
+- 12 (epwm_basic): Offered trigger generator at 10000.000000 Hz
 - 07 (epwm_basic): EpwmBasic connected to adctrig of 5
 - 07 (epwm_basic): Providing ADC trigger
-- 10 (tasktrigger): Task trigger sample time for tasktrigger (10) propagated to: 0.000200.
+- 10 (tasktrigger): Task trigger sample time for tasktrigger (10) propagated to: 0.000050.
 - 02 (extmode): Configuring external mode over UART.
 - 02 (extmode): Allocating 2052 bytes for external mode buffer.
 
 Block coding complete.
 
 Blocks in model: {
-  ["adc"] = {
+  ["epwm"] = {
     [1] = {
-      ["downstreamConnectionsPropagated"] = "true",
-      ["totalConversionTimeInAcqps"] = 28,
-      ["channels"] = {
-        [1] = {
-          ["input"] = 4.0,
-          ["scale"] = 230.30303030303,
-          ["offset"] = 0.0,
-          ["ACQPS"] = 7,
-        },
-        [2] = {
-          ["input"] = 5.0,
-          ["scale"] = 4.7846889952153,
-          ["offset"] = 0.0,
-          ["ACQPS"] = 7,
-        },
-        [3] = {
-          ["input"] = 6.0,
-          ["scale"] = 393.93939393939,
-          ["offset"] = -650.0,
-          ["ACQPS"] = 7,
-        },
-        [4] = {
-          ["input"] = 7.0,
-          ["scale"] = 24.242424242424,
-          ["offset"] = -40.0,
-          ["ACQPS"] = 7,
-        },
+      ["epwm"] = 1.0,
+      ["soc_loc"] = "zp",
+      ["show_enable"] = 0,
+      ["prd"] = 2250,
+      ["fsw_actual"] = 10000.0,
+      ["trip_zone_settings"] = {
       },
-      ["is_cla_trigger"] = "false",
-      ["trig_exp"] = "{adctrig={bid=7}}",
-      ["modtrig"] = {
-        [1] = {
-          ["ts"] = 0.0002,
-          ["trig_exp"] = "{modtrig={bid=5}}",
-          ["trig_base_task_exp"] = "{modtrig = {bid = 7}}",
-        },
+      ["sequence"] = 1,
+      ["soc_prd"] = 1,
+      ["dead_time"] = 1e-07,
+      ["polarity"] = 1,
+      ["outmode"] = "AB",
+      ["carrier_type"] = "triangle",
+      ["fsw"] = 10000.0,
+      ["periodInSysTicks"] = 9000.0,
+    },
+    [2] = {
+      ["epwm"] = 2.0,
+      ["show_enable"] = 0,
+      ["prd"] = 2250,
+      ["fsw_actual"] = 10000.0,
+      ["trip_zone_settings"] = <cyclic reference>,
+      ["sequence"] = 1,
+      ["dead_time"] = 1e-07,
+      ["polarity"] = 1,
+      ["outmode"] = "AB",
+      ["carrier_type"] = "triangle",
+      ["fsw"] = 10000.0,
+      ["periodInSysTicks"] = 9000.0,
+    },
+    [3] = {
+      ["epwm"] = 4.0,
+      ["show_enable"] = 0,
+      ["prd"] = 2250,
+      ["fsw_actual"] = 10000.0,
+      ["trip_zone_settings"] = {
       },
-      ["sigmode"] = 1,
-      ["ts"] = 0.0002,
-      ["trig_base_task_exp"] = "{adctrig = {bid = 7}}",
-      ["trig"] = {
-        ["dead_time"] = 1e-07,
-        ["soc_prd"] = 1,
-        ["channels"] = {
-          [1] = {
-            ["dead_time"] = 1e-07,
-            ["fsw_actual"] = 2500.0,
-            ["polarity"] = 1,
-            ["periodInSysTicks"] = 36000.0,
-            ["show_enable"] = 0,
-            ["prd"] = 9000,
-            ["epwm"] = 2.0,
-            ["sequence"] = 1,
-            ["carrier_type"] = "triangle",
-            ["outmode"] = "AB",
-            ["fsw"] = 2500.0,
-            ["trip_zone_settings"] = {
-            },
-          },
-          [0] = {
-            ["dead_time"] = 1e-07,
-            ["fsw_actual"] = 2500.0,
-            ["polarity"] = 1,
-            ["soc_loc"] = "zp",
-            ["soc_prd"] = 1,
-            ["periodInSysTicks"] = 36000.0,
-            ["show_enable"] = 0,
-            ["prd"] = 9000,
-            ["epwm"] = 1.0,
-            ["sequence"] = 1,
-            ["carrier_type"] = "triangle",
-            ["outmode"] = "AB",
-            ["fsw"] = 2500.0,
-            ["trip_zone_settings"] = <cyclic reference>,
-          },
-        },
-        ["soc_loc"] = "zp",
-        ["adctrig"] = {
-          [1] = <cyclic reference>,
-        },
-        ["first_unit"] = 1.0,
-        ["sequence"] = 1,
-        ["carrier_type"] = "triangle",
-        ["fsw_actual"] = 2500.0,
-        ["polarity"] = 1,
-        ["first_channel"] = 0,
-        ["adcTrigTs"] = 0.0002,
-        ["int_prd"] = 1,
-        ["modTrigTs"] = 0.0002,
-        ["fsw"] = 2500.0,
-        ["int_loc"] = "zp",
-        ["show_enable"] = 0,
-        ["outmode"] = "AB",
-        ["trip_zone_settings"] = <cyclic reference>,
-      },
-      ["num_channels"] = 4,
-      ["adc"] = 0.0,
-      ["is_mod_trigger"] = "true",
+      ["sequence"] = 1,
+      ["dead_time"] = 1e-07,
+      ["polarity"] = 1,
+      ["outmode"] = "AB",
+      ["carrier_type"] = "triangle",
+      ["fsw"] = 10000.0,
+      ["periodInSysTicks"] = 9000.0,
+    },
+    [4] = {
+      ["epwm"] = 5.0,
+      ["show_enable"] = 0,
+      ["prd"] = 2250,
+      ["fsw_actual"] = 10000.0,
+      ["trip_zone_settings"] = <cyclic reference>,
+      ["sequence"] = 1,
+      ["dead_time"] = 1e-07,
+      ["polarity"] = 1,
+      ["outmode"] = "AB",
+      ["carrier_type"] = "triangle",
+      ["fsw"] = 10000.0,
+      ["periodInSysTicks"] = 9000.0,
     },
   },
   ["cpuload"] = {
     [1] = {
     },
+  },
+  ["extmode"] = {
+    [1] = {
+    },
+  },
+  ["tripzones"] = {
+    [1] = {
+    },
+  },
+  ["powerstage"] = {
+    [1] = {
+      ["tripzones_obj"] = <cyclic reference>,
+      ["enable_gpio"] = 25.0,
+      ["trip_zones_configured"] = {
+      },
+      ["trip_zones"] = {
+      },
+      ["enable_pol"] = "false",
+      ["task_name"] = "Base Task",
+      ["enable_code_generated"] = "true",
+      ["sample_time"] = 5e-05,
+      ["deprecated"] = "false",
+      ["trip_signal_groups"] = {
+      },
+      ["force_safe"] = "true",
+    },
+  },
+  ["epwm_basic"] = {
+    [1] = {
+      ["polarity"] = 1,
+      ["show_enable"] = 0,
+      ["first_channel"] = 0,
+      ["soc_prd"] = 1,
+      ["trip_zone_settings"] = <cyclic reference>,
+      ["int_loc"] = "zp",
+      ["adctrig"] = {
+        [1] = {
+          ["num_channels"] = 4,
+          ["is_cla_trigger"] = "false",
+          ["trig_base_task_exp"] = "{adctrig = {bid = 7}}",
+          ["downstreamConnectionsPropagated"] = "true",
+          ["trig_exp"] = "{adctrig={bid=7}}",
+          ["totalConversionTimeInAcqps"] = 28,
+          ["is_mod_trigger"] = "true",
+          ["adc"] = 0.0,
+          ["sigmode"] = 1,
+          ["ts"] = 5e-05,
+          ["channels"] = {
+            [1] = {
+              ["input"] = 4.0,
+              ["ACQPS"] = 7,
+              ["scale"] = 230.30303030303,
+              ["offset"] = 0.0,
+            },
+            [2] = {
+              ["input"] = 5.0,
+              ["ACQPS"] = 7,
+              ["scale"] = 4.7846889952153,
+              ["offset"] = 0.0,
+            },
+            [3] = {
+              ["input"] = 6.0,
+              ["ACQPS"] = 7,
+              ["scale"] = 393.93939393939,
+              ["offset"] = -650.0,
+            },
+            [4] = {
+              ["input"] = 7.0,
+              ["ACQPS"] = 7,
+              ["scale"] = 24.242424242424,
+              ["offset"] = -40.0,
+            },
+          },
+          ["trig"] = <cyclic reference>,
+          ["modtrig"] = {
+            [1] = {
+              ["ts"] = 5e-05,
+              ["trig_base_task_exp"] = "{modtrig = {bid = 7}}",
+              ["trig_exp"] = "{modtrig={bid=5}}",
+            },
+          },
+        },
+      },
+      ["dead_time"] = 1e-07,
+      ["fsw"] = 10000.0,
+      ["carrier_type"] = "triangle",
+      ["soc_loc"] = "zp",
+      ["fsw_actual"] = 10000.0,
+      ["sequence"] = 1,
+      ["int_prd"] = 1,
+      ["modTrigTs"] = 5e-05,
+      ["outmode"] = "AB",
+      ["channels"] = {
+        [1] = <cyclic reference>,
+        [0] = <cyclic reference>,
+      },
+      ["adcTrigTs"] = 5e-05,
+      ["first_unit"] = 1.0,
+    },
+    [2] = {
+      ["polarity"] = 1,
+      ["show_enable"] = 0,
+      ["first_channel"] = 2,
+      ["soc_prd"] = 1,
+      ["trip_zone_settings"] = <cyclic reference>,
+      ["int_loc"] = "z",
+      ["dead_time"] = 1e-07,
+      ["fsw"] = 10000.0,
+      ["carrier_type"] = "triangle",
+      ["soc_loc"] = "z",
+      ["fsw_actual"] = 10000.0,
+      ["sequence"] = 1,
+      ["int_prd"] = 1,
+      ["adcTrigTs"] = 0.0001,
+      ["outmode"] = "AB",
+      ["channels"] = {
+        [2] = <cyclic reference>,
+        [3] = <cyclic reference>,
+      },
+      ["modTrigTs"] = 0.0001,
+      ["first_unit"] = 4.0,
+    },
+  },
+  ["adc"] = {
+    [1] = <cyclic reference>,
+  },
+  ["tasktrigger"] = {
+    [1] = <cyclic reference>,
   },
   ["dout"] = {
     [1] = {
@@ -132,69 +220,6 @@ Blocks in model: {
       },
     },
   },
-  ["epwm_basic"] = {
-    [1] = <cyclic reference>,
-    [2] = {
-      ["dead_time"] = 1e-07,
-      ["soc_prd"] = 1,
-      ["channels"] = {
-        [2] = {
-          ["dead_time"] = 1e-07,
-          ["fsw_actual"] = 2500.0,
-          ["polarity"] = 1,
-          ["periodInSysTicks"] = 36000.0,
-          ["show_enable"] = 0,
-          ["prd"] = 9000,
-          ["epwm"] = 4.0,
-          ["sequence"] = 1,
-          ["carrier_type"] = "triangle",
-          ["outmode"] = "AB",
-          ["fsw"] = 2500.0,
-          ["trip_zone_settings"] = {
-          },
-        },
-        [3] = {
-          ["dead_time"] = 1e-07,
-          ["fsw_actual"] = 2500.0,
-          ["polarity"] = 1,
-          ["periodInSysTicks"] = 36000.0,
-          ["show_enable"] = 0,
-          ["prd"] = 9000,
-          ["epwm"] = 5.0,
-          ["sequence"] = 1,
-          ["carrier_type"] = "triangle",
-          ["outmode"] = "AB",
-          ["fsw"] = 2500.0,
-          ["trip_zone_settings"] = <cyclic reference>,
-        },
-      },
-      ["soc_loc"] = "z",
-      ["first_unit"] = 4.0,
-      ["sequence"] = 1,
-      ["carrier_type"] = "triangle",
-      ["fsw_actual"] = 2500.0,
-      ["polarity"] = 1,
-      ["first_channel"] = 2,
-      ["adcTrigTs"] = 0.0004,
-      ["int_prd"] = 1,
-      ["modTrigTs"] = 0.0004,
-      ["fsw"] = 2500.0,
-      ["int_loc"] = "z",
-      ["show_enable"] = 0,
-      ["outmode"] = "AB",
-      ["trip_zone_settings"] = <cyclic reference>,
-    },
-  },
-  ["clock"] = {
-    [1] = {
-    },
-  },
-  ["epwm"] = {
-    [1] = <cyclic reference>,
-    [2] = <cyclic reference>,
-    [3] = <cyclic reference>,
-    [4] = <cyclic reference>,
-  },
   ["din"] = {
     [1] = {
       ["in_type"] = "float",
@@ -203,36 +228,11 @@ Blocks in model: {
       },
     },
   },
-  ["tripzones"] = {
-    [1] = {
-    },
-  },
-  ["tasktrigger"] = {
-    [1] = <cyclic reference>,
-  },
-  ["powerstage"] = {
-    [1] = {
-      ["trip_signal_groups"] = {
-      },
-      ["tripzones_obj"] = <cyclic reference>,
-      ["sample_time"] = 0.0002,
-      ["force_safe"] = "true",
-      ["trip_zones"] = {
-      },
-      ["enable_gpio"] = 25.0,
-      ["task_name"] = "Base Task",
-      ["trip_zones_configured"] = {
-      },
-      ["enable_code_generated"] = "true",
-      ["deprecated"] = "false",
-      ["enable_pol"] = "false",
-    },
-  },
-  ["extmode"] = {
+  ["clock"] = {
     [1] = {
     },
   },
 }
 
 
-Target settings: "Target: 0000025BB97F2618"
+Target settings: "Target: 00000198BA485528"

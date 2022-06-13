@@ -2,7 +2,7 @@
  * Header file for: hil/Plant
  * Generated with : PLECS 4.6.4
  *                  PLECS RT Box 2 2.2.2
- * Generated on   : 12 Jun 2022 18:43:59
+ * Generated on   : 13 Jun 2022 20:47:47
  */
 #ifndef PLECS_HEADER_Plant_h_
 #define PLECS_HEADER_Plant_h_
@@ -21,26 +21,26 @@ extern const char * Plant_errorStatus;
 
 
 /* Model sample time */
-extern const double Plant_sampleTime;
+extern const double Plant_sampleTime[3][2];
 
 
 /*
  * Model states */
 typedef struct
 {
+   double Plant_PM0_x[9];           /* Plant */
+   double Plant_PM1_x;              /* Plant */
+   double Plant_PM2_x;              /* Plant */
+   double Plant_PM3_x[27];          /* Plant */
+   bool Plant_PM3_s[8];             /* Plant */
+   double Assertion;                /* Plant/MFB1/Sub-cycle average/Assertion1/Assert/Assertion */
+   double Assertion_1;              /* Plant/MFB1/Sub-cycle average/Assertion2/Assert/Assertion */
    bool Monoflop;                   /* Plant/Total Harmonic Distortion U/Turn-on Delay/Monoflop */
    bool Monoflop_1;                 /* Plant/Total Harmonic Distortion I/Turn-on Delay/Monoflop */
    bool Monoflop_2;                 /* Plant/Total Harmonic Distortion U1/Turn-on Delay/Monoflop */
    bool Monoflop_3;                 /* Plant/Total Harmonic Distortion I1/Turn-on Delay/Monoflop */
    bool Monoflop_4;                 /* Plant/Total Harmonic Distortion U2/Turn-on Delay/Monoflop */
    bool Monoflop_5;                 /* Plant/Total Harmonic Distortion I2/Turn-on Delay/Monoflop */
-   double Plant_PM0_x[9];           /* Plant */
-   double Plant_PM1_x;              /* Plant */
-   double Plant_PM2_x;              /* Plant */
-   double Plant_PM3_x[27];          /* Plant */
-   bool Plant_PM3_s[2];             /* Plant */
-   double Assertion;                /* Plant/MFB1/Sub-cycle average/Assertion1/Assert/Assertion */
-   double Assertion_1;              /* Plant/MFB1/Sub-cycle average/Assertion2/Assert/Assertion */
 } Plant_ModelStates;
 extern Plant_ModelStates Plant_X;
 
@@ -48,6 +48,11 @@ extern Plant_ModelStates Plant_X;
 /* Block outputs */
 typedef struct
 {
+   double Plant[18];                /* Plant */
+   double Plant_i1[4];              /* Plant */
+   double Irradiance;               /* Plant/Irradiance */
+   double TriangularWave;           /* Plant/Controller/Sine PWM/ PWM/Configurable Subsystem/Natural/Triangular Wave */
+   double Plant_i2[18];             /* Plant */
    double Saturation1[3];           /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Saturation1 */
    double Saturation[3];            /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Saturation */
    bool Monoflop;                   /* Plant/Total Harmonic Distortion U/Turn-on Delay/Monoflop */
@@ -66,71 +71,8 @@ typedef struct
    double Saturation1_5[3];         /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Saturation1 */
    double Saturation_5[3];          /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Saturation */
    bool Monoflop_5;                 /* Plant/Total Harmonic Distortion I2/Turn-on Delay/Monoflop */
-   double Irradiance;               /* Plant/Irradiance */
-   float PWM[4];                    /* Plant/PWM */
-   bool Power;                      /* Plant/Power */
-   bool Switch;                     /* Plant/Switch */
-   double Switch_i1[4];             /* Plant/Switch */
-   double MovingAverage[3];         /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Moving Average/Moving Average */
-   double MovingAverage_1[3];       /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Moving Average1/Moving Average */
-   double MovingAverage_2[3];       /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Moving Average2/Moving Average */
-   double Gain[3];                  /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Gain */
-   double MovingAverage_3[3];       /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Moving Average3/Moving Average */
-   double Gain1[3];                 /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Gain1 */
-   double Gain2[3];                 /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Gain2 */
-   double Constant1;                /* Plant/Total Harmonic Distortion U/Constant1 */
-   bool Switch_1;                   /* Plant/Total Harmonic Distortion U/Switch */
-   double x_[3];                    /* Plant/% */
-   double MovingAverage_4[3];       /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Moving Average/Moving Average */
-   double MovingAverage_5[3];       /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Moving Average1/Moving Average */
-   double MovingAverage_6[3];       /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Moving Average2/Moving Average */
-   double Gain_1[3];                /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Gain */
-   double MovingAverage_7[3];       /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Moving Average3/Moving Average */
-   double Gain1_1[3];               /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Gain1 */
-   double Gain2_1[3];               /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Gain2 */
-   double Constant1_1;              /* Plant/Total Harmonic Distortion I/Constant1 */
-   bool Switch_2;                   /* Plant/Total Harmonic Distortion I/Switch */
-   double x_2[3];                   /* Plant/%2 */
-   double MovingAverage_8[3];       /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average/Moving Average */
-   double MovingAverage_9[3];       /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average1/Moving Average */
-   double MovingAverage_10[3];      /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average2/Moving Average */
-   double Gain_2[3];                /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Gain */
-   double MovingAverage_11[3];      /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average3/Moving Average */
-   double Gain1_2[3];               /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Gain1 */
-   double Gain2_2[3];               /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Gain2 */
-   double Constant1_2;              /* Plant/Total Harmonic Distortion U1/Constant1 */
-   bool Switch_3;                   /* Plant/Total Harmonic Distortion U1/Switch */
-   double x_1[3];                   /* Plant/%1 */
-   double MovingAverage_12[3];      /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Moving Average/Moving Average */
-   double MovingAverage_13[3];      /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Moving Average1/Moving Average */
-   double MovingAverage_14[3];      /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Moving Average2/Moving Average */
-   double Gain_3[3];                /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Gain */
-   double MovingAverage_15[3];      /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Moving Average3/Moving Average */
-   double Gain1_3[3];               /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Gain1 */
-   double Gain2_3[3];               /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Gain2 */
-   double Constant1_3;              /* Plant/Total Harmonic Distortion I1/Constant1 */
-   bool Switch_4;                   /* Plant/Total Harmonic Distortion I1/Switch */
-   double x_3[3];                   /* Plant/%3 */
-   double MovingAverage_16[3];      /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Moving Average/Moving Average */
-   double MovingAverage_17[3];      /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Moving Average1/Moving Average */
-   double MovingAverage_18[3];      /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Moving Average2/Moving Average */
-   double Gain_4[3];                /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Gain */
-   double MovingAverage_19[3];      /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Moving Average3/Moving Average */
-   double Gain1_4[3];               /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Gain1 */
-   double Gain2_4[3];               /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Gain2 */
-   double Constant1_4;              /* Plant/Total Harmonic Distortion U2/Constant1 */
-   bool Switch_5;                   /* Plant/Total Harmonic Distortion U2/Switch */
-   double x_4[3];                   /* Plant/%4 */
-   double MovingAverage_20[3];      /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Moving Average/Moving Average */
-   double MovingAverage_21[3];      /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Moving Average1/Moving Average */
-   double MovingAverage_22[3];      /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Moving Average2/Moving Average */
-   double Gain_5[3];                /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Gain */
-   double MovingAverage_23[3];      /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Moving Average3/Moving Average */
-   double Gain1_5[3];               /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Gain1 */
-   double Gain2_5[3];               /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Gain2 */
-   double Constant1_5;              /* Plant/Total Harmonic Distortion I2/Constant1 */
-   bool Switch_6;                   /* Plant/Total Harmonic Distortion I2/Switch */
-   double x_5[3];                   /* Plant/%5 */
+   double Plant_i3[4];              /* Plant */
+   double Plant_i4;                 /* Plant */
    double Generator[3];             /* Plant/Generator */
    double TransportDelay;           /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay_s1/Configurable Subsystem/Non-zero delay/Transport Delay */
    double TransportDelay_1;         /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay_s2/Configurable Subsystem/Non-zero delay/Transport Delay */
@@ -141,9 +83,68 @@ typedef struct
    double x3D_Table;                /* Plant/PV/3D-Table */
    double Offset2;                  /* Plant/MFB1/Sub-cycle average/Offset2 */
    double Offset1;                  /* Plant/MFB1/Sub-cycle average/Offset1 */
+   double SinePWMReferenceVoltage[3]; /* Plant/Controller/Sine PWM/Sine PWM Reference Voltage */
    double p_wm;                     /* Plant/Squirrel-Cage IM/p*wm */
-   double x_w_psirq;                /* Plant/Squirrel-Cage IM/-w*psirq */
-   double w_psird;                  /* Plant/Squirrel-Cage IM/w*psird */
+   double Gain;                     /* Plant/Controller/Sine PWM/Gain */
+   double Switch[3];                /* Plant/Controller/Sine PWM/ PWM/Configurable Subsystem/Natural/Switch */
+   double Gain_s1[3];               /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Gain_s1 */
+   double Sum_s1[3];                /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Sum_s1 */
+   double Gain_r1[3];               /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Gain_r1 */
+   double Sum_r1[3];                /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Sum_r1 */
+   double MovingAverage[3];         /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Moving Average/Moving Average */
+   double MovingAverage_1[3];       /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Moving Average1/Moving Average */
+   double MovingAverage_2[3];       /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Moving Average2/Moving Average */
+   double Gain_1[3];                /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Gain */
+   double MovingAverage_3[3];       /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Moving Average3/Moving Average */
+   double Gain1[3];                 /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Gain1 */
+   double Gain2[3];                 /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Gain2 */
+   double Constant1;                /* Plant/Total Harmonic Distortion U/Constant1 */
+   bool Switch_1;                   /* Plant/Total Harmonic Distortion U/Switch */
+   double MovingAverage_4[3];       /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Moving Average/Moving Average */
+   double MovingAverage_5[3];       /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Moving Average1/Moving Average */
+   double MovingAverage_6[3];       /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Moving Average2/Moving Average */
+   double Gain_2[3];                /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Gain */
+   double MovingAverage_7[3];       /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Moving Average3/Moving Average */
+   double Gain1_1[3];               /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Gain1 */
+   double Gain2_1[3];               /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Gain2 */
+   double Constant1_1;              /* Plant/Total Harmonic Distortion I/Constant1 */
+   bool Switch_2;                   /* Plant/Total Harmonic Distortion I/Switch */
+   double MovingAverage_8[3];       /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average/Moving Average */
+   double MovingAverage_9[3];       /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average1/Moving Average */
+   double MovingAverage_10[3];      /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average2/Moving Average */
+   double Gain_3[3];                /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Gain */
+   double MovingAverage_11[3];      /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average3/Moving Average */
+   double Gain1_2[3];               /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Gain1 */
+   double Gain2_2[3];               /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Gain2 */
+   double Constant1_2;              /* Plant/Total Harmonic Distortion U1/Constant1 */
+   bool Switch_3;                   /* Plant/Total Harmonic Distortion U1/Switch */
+   double MovingAverage_12[3];      /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Moving Average/Moving Average */
+   double MovingAverage_13[3];      /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Moving Average1/Moving Average */
+   double MovingAverage_14[3];      /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Moving Average2/Moving Average */
+   double Gain_4[3];                /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Gain */
+   double MovingAverage_15[3];      /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Moving Average3/Moving Average */
+   double Gain1_3[3];               /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Gain1 */
+   double Gain2_3[3];               /* Plant/Total Harmonic Distortion I1/SampleTime Settings/continuous/Gain2 */
+   double Constant1_3;              /* Plant/Total Harmonic Distortion I1/Constant1 */
+   bool Switch_4;                   /* Plant/Total Harmonic Distortion I1/Switch */
+   double MovingAverage_16[3];      /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Moving Average/Moving Average */
+   double MovingAverage_17[3];      /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Moving Average1/Moving Average */
+   double MovingAverage_18[3];      /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Moving Average2/Moving Average */
+   double Gain_5[3];                /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Gain */
+   double MovingAverage_19[3];      /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Moving Average3/Moving Average */
+   double Gain1_4[3];               /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Gain1 */
+   double Gain2_4[3];               /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Gain2 */
+   double Constant1_4;              /* Plant/Total Harmonic Distortion U2/Constant1 */
+   bool Switch_5;                   /* Plant/Total Harmonic Distortion U2/Switch */
+   double MovingAverage_20[3];      /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Moving Average/Moving Average */
+   double MovingAverage_21[3];      /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Moving Average1/Moving Average */
+   double MovingAverage_22[3];      /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Moving Average2/Moving Average */
+   double Gain_6[3];                /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Gain */
+   double MovingAverage_23[3];      /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Moving Average3/Moving Average */
+   double Gain1_5[3];               /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Gain1 */
+   double Gain2_5[3];               /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Gain2 */
+   double Constant1_5;              /* Plant/Total Harmonic Distortion I2/Constant1 */
+   bool Switch_6;                   /* Plant/Total Harmonic Distortion I2/Switch */
    double Sine;                     /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Sine */
    double Cosine;                   /* Plant/Total Harmonic Distortion U/SampleTime Settings/continuous/Cosine */
    double Sine_1;                   /* Plant/Total Harmonic Distortion I/SampleTime Settings/continuous/Sine */
@@ -156,10 +157,9 @@ typedef struct
    double Cosine_4;                 /* Plant/Total Harmonic Distortion U2/SampleTime Settings/continuous/Cosine */
    double Sine_5;                   /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Sine */
    double Cosine_5;                 /* Plant/Total Harmonic Distortion I2/SampleTime Settings/continuous/Cosine */
-   double Gain_s1[3];               /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Gain_s1 */
-   double Sum_s1[3];                /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Sum_s1 */
-   double Gain_r1[3];               /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Gain_r1 */
-   double Sum_r1[3];                /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Sum_r1 */
+   float PWM[4];                    /* Plant/PWM */
+   bool Switch_7;                   /* Plant/Switch */
+   double Switch_7_i1[4];           /* Plant/Switch */
 } Plant_BlockOutputs;
 extern Plant_BlockOutputs Plant_B;
 
@@ -168,31 +168,13 @@ extern Plant_BlockOutputs Plant_B;
 #define Plant_NumExtModeSignals 54
 extern const double * const Plant_ExtModeSignals[];
 /* Tunable parameters */
-#define Plant_NumTunableParameters 3
+#define Plant_NumTunableParameters 0
 #endif /* defined(EXTERNAL_MODE) */
 
 
-/* Block parameters */
-typedef struct
-{
-   /* Parameter 'Value' of
-    *  Constant : 'Plant/Temp [0:50] ºC'
-    */
-   double Constant_Value;
-   /* Parameter 'Hi' of
-    *  Pulse Generator : 'Plant/Irradiance'
-    */
-   double Irradiance_Hi;
-   /* Parameter 'Lo' of
-    *  Pulse Generator : 'Plant/Irradiance'
-    */
-   double Irradiance_Lo;
-} Plant_Parameters;
-extern Plant_Parameters Plant_P;
-
 /* Entry point functions */
 void Plant_initialize(double time);
-void Plant_step(void);
+void Plant_step(int task_id);
 void Plant_terminate(void);
 void Plant_sync(void);
 #endif /* PLECS_HEADER_Plant_h_ */

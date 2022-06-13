@@ -21,7 +21,7 @@
 #define likely(x)       __builtin_expect((x),1)
 #define unlikely(x)     __builtin_expect((x),0)
 
-#define MULTITASKING 0
+#define MULTITASKING 1
 
 #if defined(EXTERNAL_MODE) && EXTERNAL_MODE
 #define MODEL_NUM_EXT_MODE_SIGNALS CONCAT(MODEL_PREFIX, _NumExtModeSignals)
@@ -121,12 +121,7 @@ static void checkScopeTrigger()
    }
 }
 
-static void copyTunableParameters(const double* aData)
-{
-  MODEL_TUNABLE_PARAMETERS.Constant_Value = (double)*aData++;
-  MODEL_TUNABLE_PARAMETERS.Irradiance_Hi = (double)*aData++;
-  MODEL_TUNABLE_PARAMETERS.Irradiance_Lo = (double)*aData++;
-}
+static void copyTunableParameters(const double* aData) { (void)aData; }
 
 #else
 void initializeScopeTrigger() {}
@@ -157,8 +152,9 @@ static void modelInitFunction()
    {
       if (!plxErrorFlag)
       {
-         MODEL_STEP();
+         MODEL_STEP(0);
          plxPlatform_poll();
+         plxMulticoreSyncedStep();
       }
    }
    if (!plxErrorFlag)
@@ -180,7 +176,7 @@ static void modelSyncFunction()
 void modelStepFunction0()
 {
    /* Execute base task. */
-   MODEL_STEP();
+   MODEL_STEP(0);
    if(unlikely((size_t)MODEL_ERROR_STATUS))
    {
       plxStopTimer();
@@ -201,10 +197,12 @@ void modelStepFunction0()
 
 void modelStepFunction1()
 {
+   MODEL_STEP(1);
 }
 
 void modelStepFunction2()
 {
+   MODEL_STEP(2);
 }
 
 void plxXcpRegisterExtModeSignals(
@@ -235,9 +233,9 @@ void plxStartup(void)
    struct PlxCoreTiming coreTiming = 
    {
       .mCore1Tick = 0,
-      .mCore1Period = 0,
+      .mCore1Period = 10,
       .mCore2Tick = 0,
-      .mCore2Period = 0
+      .mCore2Period = 1
    };
    
 #if defined(EXTERNAL_MODE) && EXTERNAL_MODE
@@ -268,6 +266,6 @@ void plxStartup(void)
    plxStartSimulationModel(sampleTime, sizeof(MODEL_FLOAT_TYPE),
                            useExternalMode, numExtModeSignals, numTunableParameters,
                            trigger, armResponse, MODEL_CHECKSUM, MODEL_NAME,
-                           &modelFunctions, &coreTiming, 0,
+                           &modelFunctions, &coreTiming, 1,
                            1);
 }

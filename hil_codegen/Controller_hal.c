@@ -1,7 +1,7 @@
 /*
  * Hardware configuration file for: TI2806x
  * Generated with                 : PLECS 4.6.4
- * Generated on                   : Sun Jun 12 18:39:52 2022
+ * Generated on                   : Mon Jun 13 20:42:02 2022
  */
 
 #include "plx_hal.h"
@@ -77,12 +77,12 @@ PIL_CONFIG_DEF(uint32_t, ExtMode_ExtModeSignals_Size,
 
 #define CODE_GUID {0x09, 0x3c, 0x97, 0x5e, 0xdb, 0x2d, 0xb8, 0x40};
 PIL_CONST_DEF(unsigned char, Guid[], CODE_GUID);
-PIL_CONST_DEF(unsigned char, CompiledDate[], "06/12/2022 06:39 PM");
+PIL_CONST_DEF(unsigned char, CompiledDate[], "06/13/2022 08:42 PM");
 PIL_CONST_DEF(unsigned char, CompiledBy[], "PLECS Coder");
 PIL_CONST_DEF(uint16_t, FrameworkVersion, PIL_FRAMEWORK_VERSION);
 PIL_CONST_DEF(char, FirmwareDescription[], "TIC2000 Project");
 PIL_CONST_DEF(uint16_t, StationAddress, 0);
-PIL_CONST_DEF(uint32_t, BaudRate, 57600);
+PIL_CONST_DEF(uint32_t, BaudRate, 115200);
 static void SciPoll(PIL_Handle_t aHandle)
 {
    if(PLX_SCI_breakOccurred(SciHandle))
@@ -269,7 +269,7 @@ void Controller_initHal()
 
    SciHandle = PLX_SCI_init(&SciObj, sizeof(SciObj));
    PLX_SCI_configure(SciHandle, 0, 22500000);
-   (void)PLX_SCI_setupPort(SciHandle, 57600);
+   (void)PLX_SCI_setupPort(SciHandle, 115200);
    PilHandle = PIL_init(&PilObj, sizeof(PilObj));
    PIL_setGuid(PilHandle, PIL_GUID_PTR);
    PIL_setChecksum(PilHandle, Controller_checksum);
@@ -381,13 +381,13 @@ void Controller_initHal()
       }
    }
 
-   // configure PWM1 at 2500.0 Hz in triangle mode
+   // configure PWM1 at 10000.0 Hz in triangle mode
    // (soc='zp')
    {
       PLX_PWM_Params_t params;
       PLX_PWM_setDefaultParams(&params);
       params.outMode = PLX_PWM_OUTPUT_MODE_DUAL;
-      params.reg.TBPRD = 9000;
+      params.reg.TBPRD = 2250;
       params.reg.TBCTL.bit.CTRMODE = 2;
       // active state is high
       params.reg.DBCTL.bit.POLSEL = 2;
@@ -410,12 +410,12 @@ void Controller_initHal()
       EPwm1Regs.ETSEL.bit.SOCAEN = 1;
 
    }
-   // configure PWM2 at 2500.0 Hz in triangle mode
+   // configure PWM2 at 10000.0 Hz in triangle mode
    {
       PLX_PWM_Params_t params;
       PLX_PWM_setDefaultParams(&params);
       params.outMode = PLX_PWM_OUTPUT_MODE_DUAL;
-      params.reg.TBPRD = 9000;
+      params.reg.TBPRD = 2250;
       params.reg.TBCTL.bit.CTRMODE = 2;
       // active state is high
       params.reg.DBCTL.bit.POLSEL = 2;
@@ -435,12 +435,12 @@ void Controller_initHal()
       PLX_PWM_setSequence(EpwmHandles[1], 1);
 
    }
-   // configure PWM4 at 2500.0 Hz in triangle mode
+   // configure PWM4 at 10000.0 Hz in triangle mode
    {
       PLX_PWM_Params_t params;
       PLX_PWM_setDefaultParams(&params);
       params.outMode = PLX_PWM_OUTPUT_MODE_DUAL;
-      params.reg.TBPRD = 9000;
+      params.reg.TBPRD = 2250;
       params.reg.TBCTL.bit.CTRMODE = 2;
       // active state is high
       params.reg.DBCTL.bit.POLSEL = 2;
@@ -460,12 +460,12 @@ void Controller_initHal()
       PLX_PWM_setSequence(EpwmHandles[2], 1);
 
    }
-   // configure PWM5 at 2500.0 Hz in triangle mode
+   // configure PWM5 at 10000.0 Hz in triangle mode
    {
       PLX_PWM_Params_t params;
       PLX_PWM_setDefaultParams(&params);
       params.outMode = PLX_PWM_OUTPUT_MODE_DUAL;
-      params.reg.TBPRD = 9000;
+      params.reg.TBPRD = 2250;
       params.reg.TBCTL.bit.CTRMODE = 2;
       // active state is high
       params.reg.DBCTL.bit.POLSEL = 2;
@@ -486,15 +486,15 @@ void Controller_initHal()
 
    }
    DISPR_sinit();
-   DISPR_configure((uint32_t)(9000), PilHandle, &TaskObj[0],
+   DISPR_configure((uint32_t)(2250), PilHandle, &TaskObj[0],
                    sizeof(TaskObj)/sizeof(DISPR_TaskObj_t));
    DISPR_registerIdleTask(&Controller_background);
    DISPR_registerSyncCallback(&Controller_syncTimers);
-   DISPR_setPowerupDelay(5);
+   DISPR_setPowerupDelay(20);
    {
       static int taskId = 0;
-      // Task 0 at 5.000000e+03 Hz
-      DISPR_registerTask(0, &Tasks, 9000L, (void *)&taskId);
+      // Task 0 at 2.000000e+04 Hz
+      DISPR_registerTask(0, &Tasks, 2250L, (void *)&taskId);
    }
    {
       static int taskId = 1;
@@ -521,7 +521,7 @@ void Controller_initHal()
       };
       props.enableInvert = true;
       PLX_DIO_configureOut(doutHandle, 25, &props);
-      PLX_PWR_configure(doutHandle, 5000);
+      PLX_PWR_configure(doutHandle, 20000);
    }
    {
       PLX_DIO_sinit();
