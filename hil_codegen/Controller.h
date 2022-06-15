@@ -2,7 +2,7 @@
  * Header file for: hil/Controller
  * Generated with : PLECS 4.6.4
  *                  TI2806x 1.5.4
- * Generated on   : 14 Jun 2022 17:44:03
+ * Generated on   : 15 Jun 2022 17:55:31
  */
 #ifndef PLECS_HEADER_Controller_h_
 #define PLECS_HEADER_Controller_h_
@@ -57,8 +57,8 @@ typedef struct
    float Controller_i1[2];          /* Controller */
    float Saturation;                /* Controller/Saturation */
    float Saturation_1;              /* Controller/Current controller/Saturation */
-   float Controller_i2;             /* Controller */
-   float Controller_i3[2];          /* Controller */
+   float Controller_i2[2];          /* Controller */
+   float Controller_i3;             /* Controller */
    float Saturation_2;              /* Controller/Voltage controller/Type 2 controller/Saturation */
    float Controller_i4[3];          /* Controller */
    float dP_dVCalc;                 /* Controller/MPP controller/dP/dV calc */

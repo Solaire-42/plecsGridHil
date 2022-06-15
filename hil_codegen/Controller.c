@@ -2,7 +2,7 @@
  * Implementation file for: hil/Controller
  * Generated with         : PLECS 4.6.4
  *                          TI2806x 1.5.4
- * Generated on           : 14 Jun 2022 17:44:03
+ * Generated on           : 15 Jun 2022 17:55:31
  */
 #include "Controller.h"
 #ifndef PLECS_HEADER_Controller_h_
@@ -201,13 +201,13 @@ void Controller_initialize(float time)
    Controller_X.Integrator1_x = 0.f;
 
    /* Initialization for Subsystem : 'Controller' */
+   Controller_B.Controller_i2[0] = 0;
+   Controller_B.Controller_i2[1] = 0;
+
+   /* Initialization for Subsystem : 'Controller' */
    Controller_Sema[0] = 0;
    Controller_D_float[3] = 0;
    Controller_D_float[4] = 0;
-
-   /* Initialization for Subsystem : 'Controller' */
-   Controller_B.Controller_i3[0] = 0;
-   Controller_B.Controller_i3[1] = 0;
 
    /* Initialization for Integrator : 'Controller/Voltage\ncontroller/Type 2 controller/s' */
    Controller_X.s_x = 0.f;
@@ -443,8 +443,8 @@ void Controller_step(int task_id)
       {
 
          /* Task transfer to 'Voltage Control Task' (Zero-Order Hold) */
-         Controller_B.Controller_i3[0] = Controller_B.Saturation;
-         Controller_B.Controller_i3[1] = Controller_B.En;
+         Controller_B.Controller_i2[0] = Controller_B.Saturation;
+         Controller_B.Controller_i2[1] = Controller_B.En;
       }
       if (Controller_subTaskHit[1])
       {
@@ -500,22 +500,22 @@ void Controller_step(int task_id)
       /* Task transfer from 'MPP Control Task' (Double Buffer) */
       if (Controller_Sema[0])
       {
-         Controller_B.Controller_i2 = Controller_D_float[4];
+         Controller_B.Controller_i3 = Controller_D_float[4];
       }
       else
       {
-         Controller_B.Controller_i2 = Controller_D_float[3];
+         Controller_B.Controller_i3 = Controller_D_float[3];
       }
 
       /* Sum : 'Controller/Sum'
        * incorporates
        *  Subsystem : 'Controller'
        */
-      Controller_B.Sum_1 = -Controller_B.Controller_i2 +
-                           Controller_B.Controller_i3[0];
+      Controller_B.Sum_1 = -Controller_B.Controller_i3 +
+                           Controller_B.Controller_i2[0];
 
       /* Integrator : 'Controller/Voltage\ncontroller/Type 2 controller/s' */
-      if ((!Controller_X.s_prevReset && Controller_B.Controller_i3[1]))
+      if ((!Controller_X.s_prevReset && Controller_B.Controller_i2[1]))
       {
          Controller_X.s_x = 0.f;
       }
@@ -530,7 +530,7 @@ void Controller_step(int task_id)
       Controller_B.s = Controller_X.s_x;
 
       /* Integrator : 'Controller/Voltage\ncontroller/Type 2 controller/s^2' */
-      if ((!Controller_X.s_2_prevReset && Controller_B.Controller_i3[1]))
+      if ((!Controller_X.s_2_prevReset && Controller_B.Controller_i2[1]))
       {
          Controller_X.s_2_x = 0.f;
       }
@@ -589,13 +589,13 @@ void Controller_step(int task_id)
        * incorporates
        *  Subsystem : 'Controller'
        */
-      Controller_X.s_prevReset = !!(Controller_B.Controller_i3[1]);
+      Controller_X.s_prevReset = !!(Controller_B.Controller_i2[1]);
 
       /* Update for Integrator : 'Controller/Voltage\ncontroller/Type 2 controller/s^2'
        * incorporates
        *  Subsystem : 'Controller'
        */
-      Controller_X.s_2_prevReset = !!(Controller_B.Controller_i3[1]);
+      Controller_X.s_2_prevReset = !!(Controller_B.Controller_i2[1]);
 
       /* Derivatives for Integrator : 'Controller/Voltage\ncontroller/Type 2 controller/s' */
       if ((Controller_X.s_x >= 40.f &&
