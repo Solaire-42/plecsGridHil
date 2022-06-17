@@ -1,7 +1,7 @@
 /*
  * Hardware configuration file for: TI2806x
  * Generated with                 : PLECS 4.6.4
- * Generated on                   : Wed Jun 15 17:55:31 2022
+ * Generated on                   : Fri Jun 17 16:32:14 2022
  */
 
 #include "plx_hal.h"
@@ -10,8 +10,8 @@
 #include "Controller.h"
 #include "plx_sci.h"
 #include "plx_ain.h"
-#include "plx_dio.h"
 #include "plx_pwm.h"
+#include "plx_dio.h"
 #include "plx_power.h"
 
 void DeviceInit(Uint16 clock_source, Uint16 pllDiv);
@@ -33,7 +33,7 @@ PIL_Obj_t PilObj;
 PIL_Handle_t PilHandle = 0;
 PLX_SCI_Obj_t SciObj;
 PLX_SCI_Handle_t SciHandle;
-uint16_t ScopeBuffer[1026] /*__attribute__((aligned(16)))*/;
+uint16_t ScopeBuffer[1008] /*__attribute__((aligned(16)))*/;
 extern void PIL_setAndConfigScopeBuffer(PIL_Handle_t aPilHandle,
                                         uint16_t* aBufPtr, uint16_t aBufSize,
                                         uint16_t aMaxTraceWidthInWords);
@@ -77,7 +77,7 @@ PIL_CONFIG_DEF(uint32_t, ExtMode_ExtModeSignals_Size,
 
 #define CODE_GUID {0x09, 0x3c, 0x97, 0x5e, 0xdb, 0x2d, 0xb8, 0x40};
 PIL_CONST_DEF(unsigned char, Guid[], CODE_GUID);
-PIL_CONST_DEF(unsigned char, CompiledDate[], "06/15/2022 05:55 PM");
+PIL_CONST_DEF(unsigned char, CompiledDate[], "06/17/2022 04:32 PM");
 PIL_CONST_DEF(unsigned char, CompiledBy[], "PLECS Coder");
 PIL_CONST_DEF(uint16_t, FrameworkVersion, PIL_FRAMEWORK_VERSION);
 PIL_CONST_DEF(char, FirmwareDescription[], "TIC2000 Project");
@@ -154,12 +154,6 @@ interrupt void Controller_baseTaskInterrupt(void)
 }
 
 
-PLX_DIO_Handle_t DinHandles[1];
-PLX_DIO_Obj_t DinObj[1];
-bool PLXHAL_DIO_get(uint16_t aHandle)
-{
-   return PLX_DIO_get(DinHandles[aHandle]);
-}
 extern PLX_PWM_Handle_t EpwmHandles[];
 void PLXHAL_PWM_setDuty(uint16_t aHandle, float aDuty)
 {
@@ -193,8 +187,8 @@ void PLXHAL_PWM_setScaledDeadTimeCounts(uint16_t aChannel, float aScaling,
                              scaledCounts);
 }
 
-PLX_PWM_Handle_t EpwmHandles[4];
-PLX_PWM_Obj_t EpwmObj[4];
+PLX_PWM_Handle_t EpwmHandles[6];
+PLX_PWM_Obj_t EpwmObj[6];
 extern PIL_Handle_t PilHandle;
 DISPR_TaskObj_t TaskObj[4];
 extern void Controller_step(int task_id);
@@ -213,6 +207,12 @@ static void Tasks(bool aInit, void * const aParam)
 }
 
 
+PLX_DIO_Handle_t DinHandles[1];
+PLX_DIO_Obj_t DinObj[1];
+bool PLXHAL_DIO_get(uint16_t aHandle)
+{
+   return PLX_DIO_get(DinHandles[aHandle]);
+}
 void PLXHAL_PWR_setEnableRequest(bool aEnable)
 {
    PLX_PWR_setEnableRequest(aEnable);
@@ -273,7 +273,7 @@ void Controller_initHal()
    PilHandle = PIL_init(&PilObj, sizeof(PilObj));
    PIL_setGuid(PilHandle, PIL_GUID_PTR);
    PIL_setChecksum(PilHandle, Controller_checksum);
-   PIL_setAndConfigScopeBuffer(PilHandle, (uint16_t *)&ScopeBuffer, 1026, 26);
+   PIL_setAndConfigScopeBuffer(PilHandle, (uint16_t *)&ScopeBuffer, 1008, 8);
    PIL_setSerialComCallback(PilHandle, (PIL_CommCallbackPtr_t)SciPoll);
    {
       PLX_AIN_sinit(3.300000, 90000000);
@@ -292,7 +292,7 @@ void Controller_initHal()
       PLX_AIN_configure(AdcHandles[0], (PLX_AIN_Unit_t)0, &params);
       EALLOW;
       AdcRegs.INTSEL1N2.bit.INT1CONT = 0; // disable ADCINT1 Continuous mode
-      AdcRegs.INTSEL1N2.bit.INT1SEL = 3; // setup EOC3 to trigger ADCINT1
+      AdcRegs.INTSEL1N2.bit.INT1SEL = 6; // setup EOC6 to trigger ADCINT1
       AdcRegs.INTSEL1N2.bit.INT1E = 1; // enable ADCINT1
       AdcRegs.ADCCTL1.bit.INTPULSEPOS = 1; // ADCINT1 trips after AdcResults latch
       EDIS;
@@ -303,79 +303,101 @@ void Controller_initHal()
       EDIS;
 
    }
-   // configure SOC1 of ADC-A to measure ADCIN4
+   // configure SOC1 of ADC-A to measure ADCIN0
    {
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  2.303030303e+02f;
+      params.scale=  1.000000000e+00f;
       params.offset= 0.000000000e+00f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
-      PLX_AIN_setupChannel(AdcHandles[0], 0, 4, &params);
+      PLX_AIN_setupChannel(AdcHandles[0], 0, 0, &params);
    }
 
-   // configure SOC2 of ADC-A to measure ADCIN5
+   // configure SOC2 of ADC-A to measure ADCIN1
    {
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  4.784688995e+00f;
+      params.scale=  1.000000000e+00f;
       params.offset= 0.000000000e+00f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
-      PLX_AIN_setupChannel(AdcHandles[0], 1, 5, &params);
+      PLX_AIN_setupChannel(AdcHandles[0], 1, 1, &params);
    }
 
-   // configure SOC3 of ADC-A to measure ADCIN6
+   // configure SOC3 of ADC-A to measure ADCIN2
    {
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  3.939393939e+02f;
-      params.offset= -6.500000000e+02f;
+      params.scale=  1.000000000e+00f;
+      params.offset= 0.000000000e+00f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
-      PLX_AIN_setupChannel(AdcHandles[0], 2, 6, &params);
+      PLX_AIN_setupChannel(AdcHandles[0], 2, 2, &params);
    }
 
-   // configure SOC4 of ADC-A to measure ADCIN7
+   // configure SOC4 of ADC-A to measure ADCIN3
    {
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  2.424242424e+01f;
-      params.offset= -4.000000000e+01f;
+      params.scale=  1.000000000e+00f;
+      params.offset= 0.000000000e+00f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
-      PLX_AIN_setupChannel(AdcHandles[0], 3, 7, &params);
+      PLX_AIN_setupChannel(AdcHandles[0], 3, 3, &params);
    }
 
+   // configure SOC5 of ADC-A to measure ADCIN4
    {
-      PLX_DIO_sinit();
-      int i;
-      for(i=0; i < 1; i++)
-      {
-         DinHandles[i] = PLX_DIO_init(&DinObj[i], sizeof(DinObj[i]));
-      }
+
+      PLX_AIN_ChannelParams_t params;
+      PLX_AIN_setDefaultChannelParams(&params);
+      params.scale=  1.000000000e+00f;
+      params.offset= 0.000000000e+00f;
+      // set SOC trigger to PWM1
+      params.ADCSOCxCTL.bit.TRIGSEL = 5;
+      params.ADCSOCxCTL.bit.ACQPS = 7;
+      PLX_AIN_setupChannel(AdcHandles[0], 4, 4, &params);
    }
 
+   // configure SOC6 of ADC-A to measure ADCIN5
    {
-      PLX_DIO_InputProperties_t props = {
-         0
-      };
-      props.type = PLX_DIO_NOPULL;
-      props.enableInvert = false;
-      PLX_DIO_configureIn(DinHandles[0], 19, &props);
+
+      PLX_AIN_ChannelParams_t params;
+      PLX_AIN_setDefaultChannelParams(&params);
+      params.scale=  1.000000000e+00f;
+      params.offset= 0.000000000e+00f;
+      // set SOC trigger to PWM1
+      params.ADCSOCxCTL.bit.TRIGSEL = 5;
+      params.ADCSOCxCTL.bit.ACQPS = 7;
+      PLX_AIN_setupChannel(AdcHandles[0], 5, 5, &params);
    }
+
+   // configure SOC7 of ADC-A to measure ADCIN6
+   {
+
+      PLX_AIN_ChannelParams_t params;
+      PLX_AIN_setDefaultChannelParams(&params);
+      params.scale=  1.000000000e+00f;
+      params.offset= 0.000000000e+00f;
+      // set SOC trigger to PWM1
+      params.ADCSOCxCTL.bit.TRIGSEL = 5;
+      params.ADCSOCxCTL.bit.ACQPS = 7;
+      PLX_AIN_setupChannel(AdcHandles[0], 6, 6, &params);
+   }
+
    {
       PLX_PWM_sinit();
       int i;
-      for(i=0; i < 4; i++)
+      for(i=0; i < 6; i++)
       {
          EpwmHandles[i] = PLX_PWM_init(&EpwmObj[i], sizeof(EpwmObj[i]));
       }
@@ -435,6 +457,31 @@ void Controller_initHal()
       PLX_PWM_setSequence(EpwmHandles[1], 1);
 
    }
+   // configure PWM3 at 10000.0 Hz in triangle mode
+   {
+      PLX_PWM_Params_t params;
+      PLX_PWM_setDefaultParams(&params);
+      params.outMode = PLX_PWM_OUTPUT_MODE_DUAL;
+      params.reg.TBPRD = 2250;
+      params.reg.TBCTL.bit.CTRMODE = 2;
+      // active state is high
+      params.reg.DBCTL.bit.POLSEL = 2;
+      params.reg.TZSEL.bit.CBC1 = 0;
+      params.reg.TZSEL.bit.OSHT1 = 0;
+      params.reg.TZSEL.bit.CBC2 = 0;
+      params.reg.TZSEL.bit.OSHT2 = 0;
+      params.reg.TZSEL.bit.CBC3 = 0;
+      params.reg.TZSEL.bit.OSHT3 = 0;
+      // force low when tripped
+      params.reg.TZCTL.bit.TZA = 2;
+      params.reg.TZCTL.bit.TZB = 2;
+      PLX_PWM_configure(EpwmHandles[2], 3, &params);
+      // configure deadtime to 1.000000e-07 seconds
+      PLX_PWM_setDeadTimeCounts(EpwmHandles[2], 4, 4);
+      // PWM sequence starting with active state
+      PLX_PWM_setSequence(EpwmHandles[2], 1);
+
+   }
    // configure PWM4 at 10000.0 Hz in triangle mode
    {
       PLX_PWM_Params_t params;
@@ -453,11 +500,11 @@ void Controller_initHal()
       // force low when tripped
       params.reg.TZCTL.bit.TZA = 2;
       params.reg.TZCTL.bit.TZB = 2;
-      PLX_PWM_configure(EpwmHandles[2], 4, &params);
+      PLX_PWM_configure(EpwmHandles[3], 4, &params);
       // configure deadtime to 1.000000e-07 seconds
-      PLX_PWM_setDeadTimeCounts(EpwmHandles[2], 4, 4);
+      PLX_PWM_setDeadTimeCounts(EpwmHandles[3], 4, 4);
       // PWM sequence starting with active state
-      PLX_PWM_setSequence(EpwmHandles[2], 1);
+      PLX_PWM_setSequence(EpwmHandles[3], 1);
 
    }
    // configure PWM5 at 10000.0 Hz in triangle mode
@@ -478,11 +525,36 @@ void Controller_initHal()
       // force low when tripped
       params.reg.TZCTL.bit.TZA = 2;
       params.reg.TZCTL.bit.TZB = 2;
-      PLX_PWM_configure(EpwmHandles[3], 5, &params);
+      PLX_PWM_configure(EpwmHandles[4], 5, &params);
       // configure deadtime to 1.000000e-07 seconds
-      PLX_PWM_setDeadTimeCounts(EpwmHandles[3], 4, 4);
+      PLX_PWM_setDeadTimeCounts(EpwmHandles[4], 4, 4);
       // PWM sequence starting with active state
-      PLX_PWM_setSequence(EpwmHandles[3], 1);
+      PLX_PWM_setSequence(EpwmHandles[4], 1);
+
+   }
+   // configure PWM6 at 10000.0 Hz in triangle mode
+   {
+      PLX_PWM_Params_t params;
+      PLX_PWM_setDefaultParams(&params);
+      params.outMode = PLX_PWM_OUTPUT_MODE_DUAL;
+      params.reg.TBPRD = 2250;
+      params.reg.TBCTL.bit.CTRMODE = 2;
+      // active state is high
+      params.reg.DBCTL.bit.POLSEL = 2;
+      params.reg.TZSEL.bit.CBC1 = 0;
+      params.reg.TZSEL.bit.OSHT1 = 0;
+      params.reg.TZSEL.bit.CBC2 = 0;
+      params.reg.TZSEL.bit.OSHT2 = 0;
+      params.reg.TZSEL.bit.CBC3 = 0;
+      params.reg.TZSEL.bit.OSHT3 = 0;
+      // force low when tripped
+      params.reg.TZCTL.bit.TZA = 2;
+      params.reg.TZCTL.bit.TZB = 2;
+      PLX_PWM_configure(EpwmHandles[5], 6, &params);
+      // configure deadtime to 1.000000e-07 seconds
+      PLX_PWM_setDeadTimeCounts(EpwmHandles[5], 4, 4);
+      // PWM sequence starting with active state
+      PLX_PWM_setSequence(EpwmHandles[5], 1);
 
    }
    DISPR_sinit();
@@ -512,6 +584,23 @@ void Controller_initHal()
       DISPR_registerTask(3, &Tasks, 4500000L, (void *)&taskId);
    }
    {
+      PLX_DIO_sinit();
+      int i;
+      for(i=0; i < 1; i++)
+      {
+         DinHandles[i] = PLX_DIO_init(&DinObj[i], sizeof(DinObj[i]));
+      }
+   }
+
+   {
+      PLX_DIO_InputProperties_t props = {
+         0
+      };
+      props.type = PLX_DIO_NOPULL;
+      props.enableInvert = false;
+      PLX_DIO_configureIn(DinHandles[0], 19, &props);
+   }
+   {
       PLX_PWR_sinit();
       PLX_DIO_sinit();
       static PLX_DIO_Obj_t doutObj;
@@ -538,7 +627,7 @@ void Controller_initHal()
       };
       props.type = PLX_DIO_PUSHPULL;
       props.enableInvert = false;
-      PLX_DIO_configureOut(DoutHandles[0], 34,  &props);
+      PLX_DIO_configureOut(DoutHandles[0], 39,  &props);
    }
 
    // Post init code (for modules that depend on other modules)
@@ -547,4 +636,6 @@ void Controller_initHal()
    PLX_PWR_registerPwmChannel(EpwmHandles[1]);
    PLX_PWR_registerPwmChannel(EpwmHandles[2]);
    PLX_PWR_registerPwmChannel(EpwmHandles[3]);
+   PLX_PWR_registerPwmChannel(EpwmHandles[4]);
+   PLX_PWR_registerPwmChannel(EpwmHandles[5]);
 }

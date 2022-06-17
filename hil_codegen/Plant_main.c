@@ -233,9 +233,9 @@ void plxStartup(void)
    struct PlxCoreTiming coreTiming = 
    {
       .mCore1Tick = 0,
-      .mCore1Period = 1,
+      .mCore1Period = 10,
       .mCore2Tick = 0,
-      .mCore2Period = 10
+      .mCore2Period = 1
    };
    
 #if defined(EXTERNAL_MODE) && EXTERNAL_MODE
