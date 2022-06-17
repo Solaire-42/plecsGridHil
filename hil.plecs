@@ -369,8 +369,8 @@ Plecs {
         Index         "4"
       }
       Schematic {
-        Location      [-1920, -9; 0, 953]
-        ZoomFactor    1.96257
+        Location      [400, 27; 1680, 933]
+        ZoomFactor    1.30957
         SliderPosition [0, 0]
         ShowBrowser   off
         BrowserWidth  100
@@ -3965,7 +3965,7 @@ Plecs {
       MaskIconOpaque off
       MaskIconRotates on
       Schematic {
-        Location      [0, 23; 1680, 955]
+        Location      [0, 27; 1680, 959]
         ZoomFactor    1
         SliderPosition [2146, 0]
         ShowBrowser   off
@@ -12628,7 +12628,7 @@ Plecs {
                 Direction     left
               }
               TerminalNames { "m", "s", "Vdc12" }
-              Location      [369, 151; 1093, 560]
+              Location      [517, 510; 1241, 919]
               ZoomFactor    1
               SliderPosition [0, 0]
               ShowBrowser   off
@@ -12714,7 +12714,7 @@ Plecs {
                     }
                     Parameter {
                       Variable      "f"
-                      Value         "fc"
+                      Value         "2.5e-05"
                       Show          off
                     }
                     Parameter {
@@ -12760,7 +12760,7 @@ Plecs {
                     }
                     Parameter {
                       Variable      "f"
-                      Value         "fc"
+                      Value         "2.5e-05"
                       Show          off
                     }
                     Parameter {
@@ -16342,7 +16342,7 @@ Plecs {
       Type          SignalMux
       Name          "Mux"
       Show          off
-      Position      [470, 145]
+      Position      [470, 150]
       Direction     right
       Flipped       off
       Parameter {
@@ -16367,7 +16367,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Mux"
       SrcTerminal   1
-      Points        [485, 145; 485, 105; 50, 105]
+      Points        [485, 150; 485, 105; 50, 105]
       DstComponent  "Controller"
       DstTerminal   2
     }
