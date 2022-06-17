@@ -1,7 +1,7 @@
 /*
  * Hardware configuration file for: TI2806x
  * Generated with                 : PLECS 4.6.4
- * Generated on                   : Fri Jun 17 16:32:14 2022
+ * Generated on                   : Fri Jun 17 17:34:06 2022
  */
 
 #include "plx_hal.h"
@@ -77,7 +77,7 @@ PIL_CONFIG_DEF(uint32_t, ExtMode_ExtModeSignals_Size,
 
 #define CODE_GUID {0x09, 0x3c, 0x97, 0x5e, 0xdb, 0x2d, 0xb8, 0x40};
 PIL_CONST_DEF(unsigned char, Guid[], CODE_GUID);
-PIL_CONST_DEF(unsigned char, CompiledDate[], "06/17/2022 04:32 PM");
+PIL_CONST_DEF(unsigned char, CompiledDate[], "06/17/2022 05:34 PM");
 PIL_CONST_DEF(unsigned char, CompiledBy[], "PLECS Coder");
 PIL_CONST_DEF(uint16_t, FrameworkVersion, PIL_FRAMEWORK_VERSION);
 PIL_CONST_DEF(char, FirmwareDescription[], "TIC2000 Project");
