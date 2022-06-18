@@ -1,7 +1,7 @@
 /*
  * Hardware configuration file for: TI2806x
  * Generated with                 : PLECS 4.6.4
- * Generated on                   : Fri Jun 17 17:34:06 2022
+ * Generated on                   : Sat Jun 18 14:39:52 2022
  */
 
 #include "plx_hal.h"
@@ -33,7 +33,7 @@ PIL_Obj_t PilObj;
 PIL_Handle_t PilHandle = 0;
 PLX_SCI_Obj_t SciObj;
 PLX_SCI_Handle_t SciHandle;
-uint16_t ScopeBuffer[1008] /*__attribute__((aligned(16)))*/;
+uint16_t ScopeBuffer[1016] /*__attribute__((aligned(16)))*/;
 extern void PIL_setAndConfigScopeBuffer(PIL_Handle_t aPilHandle,
                                         uint16_t* aBufPtr, uint16_t aBufSize,
                                         uint16_t aMaxTraceWidthInWords);
@@ -77,7 +77,7 @@ PIL_CONFIG_DEF(uint32_t, ExtMode_ExtModeSignals_Size,
 
 #define CODE_GUID {0x09, 0x3c, 0x97, 0x5e, 0xdb, 0x2d, 0xb8, 0x40};
 PIL_CONST_DEF(unsigned char, Guid[], CODE_GUID);
-PIL_CONST_DEF(unsigned char, CompiledDate[], "06/17/2022 05:34 PM");
+PIL_CONST_DEF(unsigned char, CompiledDate[], "06/18/2022 02:39 PM");
 PIL_CONST_DEF(unsigned char, CompiledBy[], "PLECS Coder");
 PIL_CONST_DEF(uint16_t, FrameworkVersion, PIL_FRAMEWORK_VERSION);
 PIL_CONST_DEF(char, FirmwareDescription[], "TIC2000 Project");
@@ -273,7 +273,7 @@ void Controller_initHal()
    PilHandle = PIL_init(&PilObj, sizeof(PilObj));
    PIL_setGuid(PilHandle, PIL_GUID_PTR);
    PIL_setChecksum(PilHandle, Controller_checksum);
-   PIL_setAndConfigScopeBuffer(PilHandle, (uint16_t *)&ScopeBuffer, 1008, 8);
+   PIL_setAndConfigScopeBuffer(PilHandle, (uint16_t *)&ScopeBuffer, 1016, 16);
    PIL_setSerialComCallback(PilHandle, (PIL_CommCallbackPtr_t)SciPoll);
    {
       PLX_AIN_sinit(3.300000, 90000000);
@@ -308,8 +308,8 @@ void Controller_initHal()
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  1.000000000e+00f;
-      params.offset= 0.000000000e+00f;
+      params.scale=  4.000000000e+02f;
+      params.offset= -6.000000000e+02f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
@@ -321,8 +321,8 @@ void Controller_initHal()
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  1.000000000e+00f;
-      params.offset= 0.000000000e+00f;
+      params.scale=  4.000000000e+02f;
+      params.offset= -6.000000000e+02f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
@@ -334,8 +334,8 @@ void Controller_initHal()
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  1.000000000e+00f;
-      params.offset= 0.000000000e+00f;
+      params.scale=  4.000000000e+02f;
+      params.offset= -6.000000000e+02f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
@@ -347,8 +347,8 @@ void Controller_initHal()
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  1.000000000e+00f;
-      params.offset= 0.000000000e+00f;
+      params.scale=  2.000000000e+02f;
+      params.offset= -2.000000000e+02f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
@@ -360,8 +360,8 @@ void Controller_initHal()
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  1.000000000e+00f;
-      params.offset= 0.000000000e+00f;
+      params.scale=  2.000000000e+02f;
+      params.offset= -2.000000000e+02f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
@@ -373,8 +373,8 @@ void Controller_initHal()
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  1.000000000e+00f;
-      params.offset= 0.000000000e+00f;
+      params.scale=  2.000000000e+02f;
+      params.offset= -2.000000000e+02f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
       params.ADCSOCxCTL.bit.ACQPS = 7;
@@ -386,7 +386,7 @@ void Controller_initHal()
 
       PLX_AIN_ChannelParams_t params;
       PLX_AIN_setDefaultChannelParams(&params);
-      params.scale=  1.000000000e+00f;
+      params.scale=  2.000000000e+02f;
       params.offset= 0.000000000e+00f;
       // set SOC trigger to PWM1
       params.ADCSOCxCTL.bit.TRIGSEL = 5;
@@ -609,7 +609,7 @@ void Controller_initHal()
          0
       };
       props.enableInvert = true;
-      PLX_DIO_configureOut(doutHandle, 25, &props);
+      PLX_DIO_configureOut(doutHandle, 23, &props);
       PLX_PWR_configure(doutHandle, 20000);
    }
    {

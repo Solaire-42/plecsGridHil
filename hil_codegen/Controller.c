@@ -2,7 +2,7 @@
  * Implementation file for: hil/Controller
  * Generated with         : PLECS 4.6.4
  *                          TI2806x 1.5.4
- * Generated on           : 17 Jun 2022 17:34:06
+ * Generated on           : 18 Jun 2022 14:39:51
  */
 #include "Controller.h"
 #ifndef PLECS_HEADER_Controller_h_
@@ -63,7 +63,11 @@ const float * const Controller_ExtModeSignals[] = {
    &Controller_B.Load[0],
    &Controller_B.ADC[0],
    &Controller_B.ADC[1],
-   &Controller_B.ADC[2]
+   &Controller_B.ADC[2],
+   &Controller_B.ADC[3],
+   &Controller_B.ADC[4],
+   &Controller_B.ADC[5],
+   &Controller_B.ADC[6]
 };
 #endif /* defined(EXTERNAL_MODE) */
 Controller_ModelStates Controller_X _ALIGN;
@@ -79,7 +83,7 @@ const float Controller_sampleTime[4][2] = {
    {0.1f, 0.f}
 };
 const char * const Controller_checksum =
-   "200bcb5b9aee73782a23b251d21352a0c50f432c";
+   "0b5fd1dae3faa9523228f43d4a74192972cfecca";
 /* Target declarations */
 extern void Controller_initHal();
 

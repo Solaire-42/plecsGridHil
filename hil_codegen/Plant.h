@@ -2,7 +2,7 @@
  * Header file for: hil/Plant
  * Generated with : PLECS 4.6.4
  *                  PLECS RT Box 2 2.2.2
- * Generated on   : 17 Jun 2022 16:25:24
+ * Generated on   : 18 Jun 2022 14:40:02
  */
 #ifndef PLECS_HEADER_Plant_h_
 #define PLECS_HEADER_Plant_h_
@@ -82,12 +82,18 @@ typedef struct
    double SODMeas;                  /* Plant/ESS 200 V 100 kWh/SOD meas */
    double As_mAh;                   /* Plant/ESS 200 V 100 kWh/As->mAh */
    double SODMeas_1;                /* Plant/ESS 200 V 100 kWh1/SOD meas */
+   double As_mAh_1;                 /* Plant/ESS 200 V 100 kWh1/As->mAh */
    double SODMeas_2;                /* Plant/ESS 200 V 100 kWh2/SOD meas */
+   double As_mAh_2;                 /* Plant/ESS 200 V 100 kWh2/As->mAh */
    double SODMeas_3;                /* Plant/ESS 200 V 100 kWh3/SOD meas */
+   double As_mAh_3;                 /* Plant/ESS 200 V 100 kWh3/As->mAh */
    double p_wm;                     /* Plant/Squirrel-Cage IM/p*wm */
    double x_w_psirq;                /* Plant/Squirrel-Cage IM/-w*psirq */
    double w_psird;                  /* Plant/Squirrel-Cage IM/w*psird */
    double SoD_mAh_SoC_;             /* Plant/ESS 200 V 100 kWh/SoD(mAh)->SoC(%) */
+   double SoD_mAh_SoC_1;            /* Plant/ESS 200 V 100 kWh1/SoD(mAh)->SoC(%) */
+   double SoD_mAh_SoC_2;            /* Plant/ESS 200 V 100 kWh2/SoD(mAh)->SoC(%) */
+   double SoD_mAh_SoC_3;            /* Plant/ESS 200 V 100 kWh3/SoD(mAh)->SoC(%) */
    double Gain_s1[3];               /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Gain_s1 */
    double Sum_s1[3];                /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Sum_s1 */
    double Gain_r1[3];               /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Gain_r1 */
@@ -164,12 +170,13 @@ typedef struct
    double Cosine_5;                 /* Plant/Total Harmonic Distortion I4/SampleTime Settings/continuous/Cosine */
    float PWM[12];                   /* Plant/PWM */
    bool Switch1;                    /* Plant/Switch1 */
+   bool DataType[12];               /* Plant/Data Type */
 } Plant_BlockOutputs;
 extern Plant_BlockOutputs Plant_B;
 
 #if defined(EXTERNAL_MODE) && EXTERNAL_MODE
 /* External mode signals */
-#define Plant_NumExtModeSignals 56
+#define Plant_NumExtModeSignals 65
 extern const double * const Plant_ExtModeSignals[];
 /* Tunable parameters */
 #define Plant_NumTunableParameters 0

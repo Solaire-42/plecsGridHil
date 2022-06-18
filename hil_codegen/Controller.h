@@ -2,7 +2,7 @@
  * Header file for: hil/Controller
  * Generated with : PLECS 4.6.4
  *                  TI2806x 1.5.4
- * Generated on   : 17 Jun 2022 17:34:06
+ * Generated on   : 18 Jun 2022 14:39:51
  */
 #ifndef PLECS_HEADER_Controller_h_
 #define PLECS_HEADER_Controller_h_
@@ -58,7 +58,7 @@ extern Controller_BlockOutputs Controller_B;
 
 #if defined(EXTERNAL_MODE) && EXTERNAL_MODE
 /* External mode signals */
-#define Controller_NumExtModeSignals 4
+#define Controller_NumExtModeSignals 8
 extern const float * const Controller_ExtModeSignals[];
 /* Tunable parameters */
 #define Controller_NumTunableParameters 0
