@@ -133,16 +133,16 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1, 529; 839, 951]
+    Location      [1, 532; 839, 954]
     ZoomFactor    1.50539
-    SliderPosition [0, 8]
+    SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
       Type          Subsystem
       Name          "Controller"
       Show          on
-      Position      [115, 170]
+      Position      [130, 90]
       Direction     up
       Flipped       off
       Frame         [-50, -50; 50, 50]
@@ -354,7 +354,7 @@ Plecs {
         Index         "4"
       }
       Schematic {
-        Location      [-1920, -9; 0, 953]
+        Location      [0, 27; 1920, 989]
         ZoomFactor    1.96257
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -3878,7 +3878,7 @@ Plecs {
       Type          Subsystem
       Name          "Plant"
       Show          on
-      Position      [355, 180]
+      Position      [370, 100]
       Direction     up
       Flipped       off
       Frame         [-95, -60; 95, 60]
@@ -3986,7 +3986,7 @@ Plecs {
         Index         "3"
       }
       Schematic {
-        Location      [1680, 23; 2960, 929]
+        Location      [252, 38; 1532, 944]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -11690,7 +11690,7 @@ Plecs {
       Type          Step
       Name          "Step"
       Show          off
-      Position      [210, 185]
+      Position      [225, 105]
       Direction     right
       Flipped       off
       Parameter {
@@ -11718,7 +11718,7 @@ Plecs {
       Type          SignalMux
       Name          "Mux"
       Show          off
-      Position      [470, 145]
+      Position      [485, 65]
       Direction     right
       Flipped       off
       Parameter {
@@ -11745,7 +11745,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Mux"
       SrcTerminal   1
-      Points        [485, 145; 485, 105; 50, 105]
+      Points        [500, 65; 500, 25; 65, 25]
       DstComponent  "Controller"
       DstTerminal   2
     }
@@ -11777,13 +11777,6 @@ Plecs {
       DstComponent  "Plant"
       DstTerminal   6
     }
-    Annotation {
-      Name          "<html><body>\n<p align=\"center\">Single-phase, single-st"
-"age, grid-connected 3kW PV inverter</p>\n<p align=\"center\">with embedded co"
-"de generation for TI C2000 MCUs</p>\n<p align=\"center\">TI targets are confi"
-"gured in model initialization commands</p></body></html>"
-      Position      [260, 65]
-    } 
   }
   ProbeBlock {
     Tag           "hil/Controller/Probe"
