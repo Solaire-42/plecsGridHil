@@ -2,7 +2,7 @@
  * Header file for: hil/Controller
  * Generated with : PLECS 4.6.4
  *                  TI2806x 1.5.4
- * Generated on   : 18 Jun 2022 14:39:51
+ * Generated on   : 25 Jun 2022 10:48:53
  */
 #ifndef PLECS_HEADER_Controller_h_
 #define PLECS_HEADER_Controller_h_
@@ -46,13 +46,13 @@ typedef struct
    float Controller_i1[3];          /* Controller */
    float Controller_i2;             /* Controller */
    float TriangularWave;            /* Controller/Controller/Sine PWM/ PWM/Configurable Subsystem/Natural/Triangular Wave */
-   bool LogicalOperator1;           /* Controller/Logical Operator1 */
    float Load[5];                   /* Controller/Load */
    float ADC[7];                    /* Controller/ADC */
    float SinePWMReferenceVoltage[3]; /* Controller/Controller/Sine PWM/Sine PWM Reference Voltage */
    float Gain;                      /* Controller/Controller/Sine PWM/Gain */
    float Switch[3];                 /* Controller/Controller/Sine PWM/ PWM/Configurable Subsystem/Natural/Switch */
    bool Delay1;                     /* Controller/Delay1 */
+   bool LogicalOperator1;           /* Controller/Logical Operator1 */
 } Controller_BlockOutputs;
 extern Controller_BlockOutputs Controller_B;
 

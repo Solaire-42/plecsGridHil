@@ -2,7 +2,7 @@
  * Header file for: hil/Plant
  * Generated with : PLECS 4.6.4
  *                  PLECS RT Box 2 2.2.2
- * Generated on   : 25 Jun 2022 09:41:00
+ * Generated on   : 25 Jun 2022 10:49:06
  */
 #ifndef PLECS_HEADER_Plant_h_
 #define PLECS_HEADER_Plant_h_
@@ -33,16 +33,16 @@ typedef struct
    float Plant_PM1_x;               /* Plant */
    float Plant_PM2_x[33];           /* Plant */
    bool Plant_PM2_s[6];             /* Plant */
+   float SODMeas_x;                 /* Plant/ESS 200 V 100 kWh/SOD meas */
+   float SODMeas_1_x;               /* Plant/ESS 200 V 100 kWh1/SOD meas */
+   float SODMeas_2_x;               /* Plant/ESS 200 V 100 kWh2/SOD meas */
+   float SODMeas_3_x;               /* Plant/ESS 200 V 100 kWh3/SOD meas */
    bool Monoflop;                   /* Plant/Total Harmonic Distortion U1/Turn-on Delay/Monoflop */
    bool Monoflop_1;                 /* Plant/Total Harmonic Distortion I1/Turn-on Delay/Monoflop */
    bool Monoflop_2;                 /* Plant/Total Harmonic Distortion U2/Turn-on Delay/Monoflop */
    bool Monoflop_3;                 /* Plant/Total Harmonic Distortion I2/Turn-on Delay/Monoflop */
    bool Monoflop_4;                 /* Plant/Total Harmonic Distortion U4/Turn-on Delay/Monoflop */
    bool Monoflop_5;                 /* Plant/Total Harmonic Distortion I4/Turn-on Delay/Monoflop */
-   float SODMeas_x;                 /* Plant/ESS 200 V 100 kWh/SOD meas */
-   float SODMeas_1_x;               /* Plant/ESS 200 V 100 kWh1/SOD meas */
-   float SODMeas_2_x;               /* Plant/ESS 200 V 100 kWh2/SOD meas */
-   float SODMeas_3_x;               /* Plant/ESS 200 V 100 kWh3/SOD meas */
 } Plant_ModelStates;
 extern Plant_ModelStates Plant_X;
 
@@ -52,7 +52,9 @@ typedef struct
 {
    float Plant[18];                 /* Plant */
    float Plant_i1[12];              /* Plant */
-   float Plant_i2[18];              /* Plant */
+   float Plant_i2[7];               /* Plant */
+   float Plant_i3;                  /* Plant */
+   float Plant_i4[18];              /* Plant */
    float Saturation1[3];            /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Saturation1 */
    float Saturation[3];             /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Saturation */
    bool Monoflop;                   /* Plant/Total Harmonic Distortion U1/Turn-on Delay/Monoflop */
@@ -71,8 +73,6 @@ typedef struct
    float Saturation1_5[3];          /* Plant/Total Harmonic Distortion I4/SampleTime Settings/continuous/Saturation1 */
    float Saturation_5[3];           /* Plant/Total Harmonic Distortion I4/SampleTime Settings/continuous/Saturation */
    bool Monoflop_5;                 /* Plant/Total Harmonic Distortion I4/Turn-on Delay/Monoflop */
-   float Plant_i3[7];               /* Plant */
-   float Plant_i4;                  /* Plant */
    float Generator[3];              /* Plant/Generator */
    float TransportDelay;            /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay_s1/Configurable Subsystem/Non-zero delay/Transport Delay */
    float TransportDelay_1;          /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay_s2/Configurable Subsystem/Non-zero delay/Transport Delay */
@@ -80,8 +80,8 @@ typedef struct
    float TransportDelay_3;          /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay_r1/Configurable Subsystem/Non-zero delay/Transport Delay */
    float TransportDelay_4;          /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay1_r2/Configurable Subsystem/Non-zero delay/Transport Delay */
    float TransportDelay_5;          /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay1_r3/Configurable Subsystem/Non-zero delay/Transport Delay */
-   float Delay;                     /* Plant/coupling circuit5/Voltage Source/Delay */
    float Offset;                    /* Plant/VSI1/Sub-cycle average/HBa/Sub-cycle average/Offset */
+   float Delay;                     /* Plant/coupling circuit5/Voltage Source/Delay */
    float Offset_1;                  /* Plant/VSI1/Sub-cycle average/HBb/Sub-cycle average/Offset */
    float Offset_2;                  /* Plant/VSI1/Sub-cycle average/HBc/Sub-cycle average/Offset */
    float p_wm;                      /* Plant/Squirrel-Cage IM/p*wm */
@@ -94,6 +94,21 @@ typedef struct
    float Sum_s1[3];                 /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Sum_s1 */
    float Gain_r1[3];                /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Gain_r1 */
    float Sum_r1[3];                 /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Sum_r1 */
+   float PWM[12];                   /* Plant/PWM */
+   bool Switch1;                    /* Plant/Switch1 */
+   float Switch1_i1[12];            /* Plant/Switch1 */
+   float SODMeas;                   /* Plant/ESS 200 V 100 kWh/SOD meas */
+   float As_mAh;                    /* Plant/ESS 200 V 100 kWh/As->mAh */
+   float SODMeas_1;                 /* Plant/ESS 200 V 100 kWh1/SOD meas */
+   float As_mAh_1;                  /* Plant/ESS 200 V 100 kWh1/As->mAh */
+   float SODMeas_2;                 /* Plant/ESS 200 V 100 kWh2/SOD meas */
+   float As_mAh_2;                  /* Plant/ESS 200 V 100 kWh2/As->mAh */
+   float SODMeas_3;                 /* Plant/ESS 200 V 100 kWh3/SOD meas */
+   float As_mAh_3;                  /* Plant/ESS 200 V 100 kWh3/As->mAh */
+   float AdjustCurrentForParallelCellStr; /* Plant/ESS 200 V 100 kWh/Adjust Current for Parallel Cell Strings */
+   float AdjustCurrentForParallelCellS_1; /* Plant/ESS 200 V 100 kWh1/Adjust Current for Parallel Cell Strings */
+   float AdjustCurrentForParallelCellS_2; /* Plant/ESS 200 V 100 kWh2/Adjust Current for Parallel Cell Strings */
+   float AdjustCurrentForParallelCellS_3; /* Plant/ESS 200 V 100 kWh3/Adjust Current for Parallel Cell Strings */
    float MovingAverage[3];          /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average/Moving Average */
    float MovingAverage_1[3];        /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average1/Moving Average */
    float MovingAverage_2[3];        /* Plant/Total Harmonic Distortion U1/SampleTime Settings/continuous/Moving Average2/Moving Average */
@@ -160,21 +175,6 @@ typedef struct
    float Cosine_4;                  /* Plant/Total Harmonic Distortion U4/SampleTime Settings/continuous/Cosine */
    float Sine_5;                    /* Plant/Total Harmonic Distortion I4/SampleTime Settings/continuous/Sine */
    float Cosine_5;                  /* Plant/Total Harmonic Distortion I4/SampleTime Settings/continuous/Cosine */
-   float PWM[12];                   /* Plant/PWM */
-   bool Switch1;                    /* Plant/Switch1 */
-   float Switch1_i1[12];            /* Plant/Switch1 */
-   float SODMeas;                   /* Plant/ESS 200 V 100 kWh/SOD meas */
-   float As_mAh;                    /* Plant/ESS 200 V 100 kWh/As->mAh */
-   float SODMeas_1;                 /* Plant/ESS 200 V 100 kWh1/SOD meas */
-   float As_mAh_1;                  /* Plant/ESS 200 V 100 kWh1/As->mAh */
-   float SODMeas_2;                 /* Plant/ESS 200 V 100 kWh2/SOD meas */
-   float As_mAh_2;                  /* Plant/ESS 200 V 100 kWh2/As->mAh */
-   float SODMeas_3;                 /* Plant/ESS 200 V 100 kWh3/SOD meas */
-   float As_mAh_3;                  /* Plant/ESS 200 V 100 kWh3/As->mAh */
-   float AdjustCurrentForParallelCellStr; /* Plant/ESS 200 V 100 kWh/Adjust Current for Parallel Cell Strings */
-   float AdjustCurrentForParallelCellS_1; /* Plant/ESS 200 V 100 kWh1/Adjust Current for Parallel Cell Strings */
-   float AdjustCurrentForParallelCellS_2; /* Plant/ESS 200 V 100 kWh2/Adjust Current for Parallel Cell Strings */
-   float AdjustCurrentForParallelCellS_3; /* Plant/ESS 200 V 100 kWh3/Adjust Current for Parallel Cell Strings */
 } Plant_BlockOutputs;
 extern Plant_BlockOutputs Plant_B;
 

@@ -2,7 +2,7 @@
  * Implementation file for: hil/Controller
  * Generated with         : PLECS 4.6.4
  *                          TI2806x 1.5.4
- * Generated on           : 18 Jun 2022 14:39:51
+ * Generated on           : 25 Jun 2022 10:48:53
  */
 #include "Controller.h"
 #ifndef PLECS_HEADER_Controller_h_
@@ -41,16 +41,14 @@
 #include <string.h>
 #include "plx_hal.h"
 #define PLECSRunTimeError(msg) Controller_errorStatus = msg
-static const uint32_t Controller_subTaskPeriod[3]= {
+static const uint32_t Controller_subTaskPeriod[2]= {
    /* [0.0004, 0], Base Task */
    8,
    /* [0.0022, 0], Base Task */
-   44,
-   /* [0.5, 0], LED Task */
-   5
+   44
 };
-static uint32_t Controller_subTaskTick[3];
-static char Controller_subTaskHit[3];
+static uint32_t Controller_subTaskTick[2];
+static char Controller_subTaskHit[2];
 static const float Controller_UNCONNECTED = 0;
 static bool Controller_D_bool[6];
 static float Controller_D_float[12];
@@ -80,10 +78,10 @@ const float Controller_sampleTime[4][2] = {
    /* Task "Control Task" */
    {0.0022f, 0.f},
    /* Task "LED Task" */
-   {0.1f, 0.f}
+   {0.5f, 0.f}
 };
 const char * const Controller_checksum =
-   "0b5fd1dae3faa9523228f43d4a74192972cfecca";
+   "3d0fe2b273794ac9e539787a38d0d04e52760798";
 /* Target declarations */
 extern void Controller_initHal();
 
@@ -106,14 +104,13 @@ void Controller_initialize(float time)
    /* Initialize sub-task tick counters */
    Controller_subTaskTick[0] = 0;   /* Base Task, [0.0004, 0] */
    Controller_subTaskTick[1] = 0;   /* Base Task, [0.0022, 0] */
-   Controller_subTaskTick[2] = 0;   /* LED Task, [0.5, 0] */
 
 
    /* Offset sub-task tick counters */
    {
       uint32_t i, n, N, delta;
       N = abs(Controller_tickHi[0]);
-      for (i = 0; i < 3; ++i)
+      for (i = 0; i < 2; ++i)
       {
          delta = -Controller_subTaskPeriod[i];
          delta %= Controller_subTaskPeriod[i];
@@ -214,22 +211,22 @@ void Controller_step(int task_id)
 
       /* PWM  : 'Controller/PWM' */
       {
-         PLXHAL_PWM_setDuty(0, Controller_B.Controller[0]);
+         PLXHAL_PWM_setDuty(0, Controller_B.Controller[3]);
       }
       {
-         PLXHAL_PWM_setDuty(1, Controller_B.Controller[1]);
+         PLXHAL_PWM_setDuty(1, Controller_B.Controller[5]);
       }
       {
-         PLXHAL_PWM_setDuty(2, Controller_B.Controller[2]);
+         PLXHAL_PWM_setDuty(2, Controller_B.Controller[0]);
       }
       {
-         PLXHAL_PWM_setDuty(3, Controller_B.Controller[3]);
+         PLXHAL_PWM_setDuty(3, Controller_B.Controller[4]);
       }
       {
-         PLXHAL_PWM_setDuty(4, Controller_B.Controller[4]);
+         PLXHAL_PWM_setDuty(4, Controller_B.Controller[1]);
       }
       {
-         PLXHAL_PWM_setDuty(5, Controller_B.Controller[5]);
+         PLXHAL_PWM_setDuty(5, Controller_B.Controller[2]);
       }
       /* Powerstage Protection : 'Controller/Power' */
       {
@@ -289,12 +286,12 @@ void Controller_step(int task_id)
          Controller_B.Controller_i1[2] = Controller_D_float[4];
       }
       /* Task transfer to 'Base Task' (Unit Delay) */
-      Controller_D_bool[0] = Controller_B.Controller_i1[0] > 0.f;
-      Controller_D_bool[1] = Controller_B.Controller_i1[0] < 0.f;
-      Controller_D_bool[2] = Controller_B.Controller_i1[1] > 0.f;
-      Controller_D_bool[3] = Controller_B.Controller_i1[1] < 0.f;
-      Controller_D_bool[4] = Controller_B.Controller_i1[2] > 0.f;
-      Controller_D_bool[5] = Controller_B.Controller_i1[2] < 0.f;
+      Controller_D_bool[0] = Controller_B.Controller_i1[1] > 0.f;
+      Controller_D_bool[1] = Controller_B.Controller_i1[2] > 0.f;
+      Controller_D_bool[2] = Controller_B.Controller_i1[2] < 0.f;
+      Controller_D_bool[3] = Controller_B.Controller_i1[0] > 0.f;
+      Controller_D_bool[4] = Controller_B.Controller_i1[1] < 0.f;
+      Controller_D_bool[5] = Controller_B.Controller_i1[0] < 0.f;
       if (Controller_errorStatus)
       {
          return;
@@ -411,46 +408,21 @@ void Controller_step(int task_id)
 
    case 3:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           /* Task "LED Task" */
    {
-      {
-         size_t i;
-         for (i = 2; i < 3; ++i)
-         {
-            Controller_subTaskHit[i] = (Controller_subTaskTick[i] == 0);
-         }
-      }
-      if (Controller_subTaskHit[2])
-      {
-         /* Delay : 'Controller/Delay1' */
-         Controller_B.Delay1 = Controller_X.Delay1;
 
-         /* Logical Operator : 'Controller/Logical\nOperator1' */
-         Controller_B.LogicalOperator1 = !Controller_B.Delay1;
-      }
+      /* Delay : 'Controller/Delay1' */
+      Controller_B.Delay1 = Controller_X.Delay1;
 
+      /* Logical Operator : 'Controller/Logical\nOperator1' */
+      Controller_B.LogicalOperator1 = !Controller_B.Delay1;
       /* Digital Out : 'Controller/LED Blinking' */
       PLXHAL_DIO_set(0, Controller_B.LogicalOperator1);
       if (Controller_errorStatus)
       {
          return;
       }
-      if (Controller_subTaskHit[2])
-      {
-         /* Update for Delay : 'Controller/Delay1' */
-         Controller_X.Delay1 = Controller_B.LogicalOperator1;
-      }
 
-      /* Increment sub-task tick counters */
-      {
-         size_t i;
-         for (i = 2; i < 3; ++i)
-         {
-            Controller_subTaskTick[i]++;
-            if (Controller_subTaskTick[i] >= Controller_subTaskPeriod[i])
-            {
-               Controller_subTaskTick[i] = 0;
-            }
-         }
-      }
+      /* Update for Delay : 'Controller/Delay1' */
+      Controller_X.Delay1 = Controller_B.LogicalOperator1;
       break;
    }
    }

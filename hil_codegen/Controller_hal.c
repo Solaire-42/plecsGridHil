@@ -1,7 +1,7 @@
 /*
  * Hardware configuration file for: TI2806x
  * Generated with                 : PLECS 4.6.4
- * Generated on                   : Sat Jun 18 14:39:52 2022
+ * Generated on                   : Sat Jun 25 10:48:53 2022
  */
 
 #include "plx_hal.h"
@@ -77,7 +77,7 @@ PIL_CONFIG_DEF(uint32_t, ExtMode_ExtModeSignals_Size,
 
 #define CODE_GUID {0x09, 0x3c, 0x97, 0x5e, 0xdb, 0x2d, 0xb8, 0x40};
 PIL_CONST_DEF(unsigned char, Guid[], CODE_GUID);
-PIL_CONST_DEF(unsigned char, CompiledDate[], "06/18/2022 02:39 PM");
+PIL_CONST_DEF(unsigned char, CompiledDate[], "06/25/2022 10:48 AM");
 PIL_CONST_DEF(unsigned char, CompiledBy[], "PLECS Coder");
 PIL_CONST_DEF(uint16_t, FrameworkVersion, PIL_FRAMEWORK_VERSION);
 PIL_CONST_DEF(char, FirmwareDescription[], "TIC2000 Project");
@@ -580,8 +580,8 @@ void Controller_initHal()
    }
    {
       static int taskId = 3;
-      // Task 3 at 1.000000e+01 Hz
-      DISPR_registerTask(3, &Tasks, 4500000L, (void *)&taskId);
+      // Task 3 at 2.000000e+00 Hz
+      DISPR_registerTask(3, &Tasks, 22500000L, (void *)&taskId);
    }
    {
       PLX_DIO_sinit();
