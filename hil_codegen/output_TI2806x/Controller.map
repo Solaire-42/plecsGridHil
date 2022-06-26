@@ -1,10 +1,10 @@
 ******************************************************************************
              TMS320C2000 Linker PC v18.12.8                    
 ******************************************************************************
->> Linked Sat Jun 25 14:14:36 2022
+>> Linked Sun Jun 26 17:40:31 2022
 
 OUTPUT FILE NAME:   <./output_TI2806x/Controller.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 0000bd08
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000bd0c
 
 
 MEMORY CONFIGURATION
@@ -16,7 +16,7 @@ PAGE 0:
   RAMM0                 00000050   000003b0  00000000  000003b0  RWIX
   RAMM1                 00000400   00000400  00000300  00000100  RWIX
   BEGIN                 00008800   00000002  00000002  00000000  RWIX
-  PRAML                 00008802   000057fe  0000370b  000020f3  RWIX
+  PRAML                 00008802   000057fe  0000370f  000020ef  RWIX
   RAML                  0000e000   00004700  00000975  00003d8b  RWIX
   RAML8_RSVD1           00013700   00000100  00000000  00000100  RWIX
   RAML8_RSVD2           00013800   00000800  00000000  00000800  RWIX
@@ -149,53 +149,53 @@ codestart
 *          0    00008800    00000002     
                   00008800    00000002     F2806x_CodeStartBranch.obj (codestart)
 
-.text      0    0000890c    00003469     
+.text      0    0000890c    0000346d     
                   0000890c    000007a9     Controller_hal.obj (.text)
                   000090b5    0000061f     pil_c28_fpu32_eabi.lib : probes.obj (.text)
-                  000096d4    0000057e     Controller.obj (.text)
-                  00009c52    000004d3     pil_c28_fpu32_eabi.lib : scope.obj (.text)
-                  0000a125    000003f8                            : pil.obj (.text)
-                  0000a51d    00000352     pwm_2806x.obj (.text)
-                  0000a86f    00000328     pil_c28_fpu32_eabi.lib : seriallink.obj (.text)
-                  0000ab97    00000226                            : basicservices.obj (.text)
-                  0000adbd    00000202                            : remoteagent.obj (.text)
-                  0000afbf    00000172                            : parallelbridge.obj (.text)
-                  0000b131    00000163     ain_2806x.obj (.text)
-                  0000b294    0000013a     dispatcher.obj (.text)
-                  0000b3ce    0000012f     power.obj (.text)
-                  0000b4fd    0000011f     dio_2806x.obj (.text)
-                  0000b61c    000000e9     rts2800_fpu32_eabi.lib : s_floor.c.obj (.text)
-                  0000b705    000000df     F2806x_DevInit.obj (.text)
-                  0000b7e4    0000009c     rts2800_fpu32_eabi.lib : fd_add28.asm.obj (.text)
-                  0000b880    0000008b                            : fd_div28.asm.obj (.text)
-                  0000b90b    00000088                            : fs_div28.asm.obj (.text)
-                  0000b993    00000083                            : fd_mpy28.asm.obj (.text)
-                  0000ba16    00000064     pil_c28_fpu32_eabi.lib : ringbuf.obj (.text)
-                  0000ba7a    00000063     rts2800_fpu32_eabi.lib : s_cosf.c.obj (.text)
-                  0000badd    00000061     sci_2806x.obj (.text)
-                  0000bb3e    00000059     rts2800_fpu32_eabi.lib : s_sinf.c.obj (.text)
-                  0000bb97    00000037     Controller_hal.obj (.text:retain)
-                  0000bbce    00000031     rts2800_fpu32_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss)
-                  0000bbff    0000002b                            : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
-                  0000bc2a    0000002a                            : fd_cmp28.asm.obj (.text)
-                  0000bc54    00000029                            : exit.c.obj (.text)
-                  0000bc7d    0000001f                            : fd_tol28.asm.obj (.text)
-                  0000bc9c    0000001d                            : memcpy.c.obj (.text)
-                  0000bcb9    0000001c                            : fs_tofdfpu32.asm.obj (.text)
-                  0000bcd5    0000001b                            : fd_toul28.asm.obj (.text)
-                  0000bcf0    00000018                            : ll_aox28.asm.obj (.text)
-                  0000bd08    00000017                            : boot28.asm.obj (.text)
-                  0000bd1f    00000010     Controller_main.obj (.text)
-                  0000bd2f    0000000c     rts2800_fpu32_eabi.lib : args_main.c.obj (.text)
-                  0000bd3b    0000000a     F2806x_DevInit.obj (.text:retain)
-                  0000bd45    00000009     rts2800_fpu32_eabi.lib : _lock.c.obj (.text)
-                  0000bd4e    00000008     F2806x_CodeStartBranch.obj (.text)
-                  0000bd56    00000008     rts2800_fpu32_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none)
-                  0000bd5e    00000007     pil_c28_fpu32_eabi.lib : pil_f28x_dis_int.obj (.text)
-                  0000bd65    00000007     rts2800_fpu32_eabi.lib : memset.c.obj (.text)
-                  0000bd6c    00000006                            : copy_zero_init.c.obj (.text:decompress:ZI)
-                  0000bd72    00000002                            : pre_init.c.obj (.text)
-                  0000bd74    00000001                            : startup.c.obj (.text)
+                  000096d4    00000582     Controller.obj (.text)
+                  00009c56    000004d3     pil_c28_fpu32_eabi.lib : scope.obj (.text)
+                  0000a129    000003f8                            : pil.obj (.text)
+                  0000a521    00000352     pwm_2806x.obj (.text)
+                  0000a873    00000328     pil_c28_fpu32_eabi.lib : seriallink.obj (.text)
+                  0000ab9b    00000226                            : basicservices.obj (.text)
+                  0000adc1    00000202                            : remoteagent.obj (.text)
+                  0000afc3    00000172                            : parallelbridge.obj (.text)
+                  0000b135    00000163     ain_2806x.obj (.text)
+                  0000b298    0000013a     dispatcher.obj (.text)
+                  0000b3d2    0000012f     power.obj (.text)
+                  0000b501    0000011f     dio_2806x.obj (.text)
+                  0000b620    000000e9     rts2800_fpu32_eabi.lib : s_floor.c.obj (.text)
+                  0000b709    000000df     F2806x_DevInit.obj (.text)
+                  0000b7e8    0000009c     rts2800_fpu32_eabi.lib : fd_add28.asm.obj (.text)
+                  0000b884    0000008b                            : fd_div28.asm.obj (.text)
+                  0000b90f    00000088                            : fs_div28.asm.obj (.text)
+                  0000b997    00000083                            : fd_mpy28.asm.obj (.text)
+                  0000ba1a    00000064     pil_c28_fpu32_eabi.lib : ringbuf.obj (.text)
+                  0000ba7e    00000063     rts2800_fpu32_eabi.lib : s_cosf.c.obj (.text)
+                  0000bae1    00000061     sci_2806x.obj (.text)
+                  0000bb42    00000059     rts2800_fpu32_eabi.lib : s_sinf.c.obj (.text)
+                  0000bb9b    00000037     Controller_hal.obj (.text:retain)
+                  0000bbd2    00000031     rts2800_fpu32_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss)
+                  0000bc03    0000002b                            : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
+                  0000bc2e    0000002a                            : fd_cmp28.asm.obj (.text)
+                  0000bc58    00000029                            : exit.c.obj (.text)
+                  0000bc81    0000001f                            : fd_tol28.asm.obj (.text)
+                  0000bca0    0000001d                            : memcpy.c.obj (.text)
+                  0000bcbd    0000001c                            : fs_tofdfpu32.asm.obj (.text)
+                  0000bcd9    0000001b                            : fd_toul28.asm.obj (.text)
+                  0000bcf4    00000018                            : ll_aox28.asm.obj (.text)
+                  0000bd0c    00000017                            : boot28.asm.obj (.text)
+                  0000bd23    00000010     Controller_main.obj (.text)
+                  0000bd33    0000000c     rts2800_fpu32_eabi.lib : args_main.c.obj (.text)
+                  0000bd3f    0000000a     F2806x_DevInit.obj (.text:retain)
+                  0000bd49    00000009     rts2800_fpu32_eabi.lib : _lock.c.obj (.text)
+                  0000bd52    00000008     F2806x_CodeStartBranch.obj (.text)
+                  0000bd5a    00000008     rts2800_fpu32_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none)
+                  0000bd62    00000007     pil_c28_fpu32_eabi.lib : pil_f28x_dis_int.obj (.text)
+                  0000bd69    00000007     rts2800_fpu32_eabi.lib : memset.c.obj (.text)
+                  0000bd70    00000006                            : copy_zero_init.c.obj (.text:decompress:ZI)
+                  0000bd76    00000002                            : pre_init.c.obj (.text)
+                  0000bd78    00000001                            : startup.c.obj (.text)
 
 EPwm1RegsFile 
 *          1    00006800    00000040     UNINITIALIZED
@@ -229,34 +229,34 @@ EPwm8RegsFile
 *          1    000069c0    00000040     UNINITIALIZED
                   000069c0    00000040     F2806x_GlobalVariableDefs.obj (EPwm8RegsFile)
 
-dispatch   0    0000bd75    000000b9     
-                  0000bd75    000000b9     dispatcher.obj (dispatch)
+dispatch   0    0000bd79    000000b9     
+                  0000bd79    000000b9     dispatcher.obj (dispatch)
 
-.cinit     0    0000be50    000000c0     
-                  0000be50    0000000e     (.cinit..data.load) [load image, compression = lzss]
-                  0000be5e    00000006     (__TI_handler_table)
-                  0000be64    00000004     (.cinit..bss.load) [load image, compression = zero_init]
-                  0000be68    00000004     (.cinit.AdcRegsFile.load) [load image, compression = zero_init]
-                  0000be6c    00000004     (.cinit.AdcResultFile.load) [load image, compression = zero_init]
-                  0000be70    00000004     (.cinit.CpuTimer0RegsFile.load) [load image, compression = zero_init]
-                  0000be74    00000004     (.cinit.CpuTimer1RegsFile.load) [load image, compression = zero_init]
-                  0000be78    00000004     (.cinit.CpuTimer2RegsFile.load) [load image, compression = zero_init]
-                  0000be7c    00000004     (.cinit.EPwm1RegsFile.load) [load image, compression = zero_init]
-                  0000be80    00000004     (.cinit.EPwm2RegsFile.load) [load image, compression = zero_init]
-                  0000be84    00000004     (.cinit.EPwm3RegsFile.load) [load image, compression = zero_init]
-                  0000be88    00000004     (.cinit.EPwm4RegsFile.load) [load image, compression = zero_init]
-                  0000be8c    00000004     (.cinit.EPwm5RegsFile.load) [load image, compression = zero_init]
-                  0000be90    00000004     (.cinit.EPwm6RegsFile.load) [load image, compression = zero_init]
-                  0000be94    00000004     (.cinit.EPwm7RegsFile.load) [load image, compression = zero_init]
-                  0000be98    00000004     (.cinit.EPwm8RegsFile.load) [load image, compression = zero_init]
-                  0000be9c    00000004     (.cinit.FlashRegsFile.load) [load image, compression = zero_init]
-                  0000bea0    00000004     (.cinit.GpioCtrlRegsFile.load) [load image, compression = zero_init]
-                  0000bea4    00000004     (.cinit.GpioDataRegsFile.load) [load image, compression = zero_init]
-                  0000bea8    00000004     (.cinit.PieCtrlRegsFile.load) [load image, compression = zero_init]
-                  0000beac    00000004     (.cinit.PieVectTableFile.load) [load image, compression = zero_init]
-                  0000beb0    00000004     (.cinit.SciaRegsFile.load) [load image, compression = zero_init]
-                  0000beb4    00000004     (.cinit.SysCtrlRegsFile.load) [load image, compression = zero_init]
-                  0000beb8    00000058     (__TI_cinit_table)
+.cinit     0    0000be54    000000c0     
+                  0000be54    0000000e     (.cinit..data.load) [load image, compression = lzss]
+                  0000be62    00000006     (__TI_handler_table)
+                  0000be68    00000004     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000be6c    00000004     (.cinit.AdcRegsFile.load) [load image, compression = zero_init]
+                  0000be70    00000004     (.cinit.AdcResultFile.load) [load image, compression = zero_init]
+                  0000be74    00000004     (.cinit.CpuTimer0RegsFile.load) [load image, compression = zero_init]
+                  0000be78    00000004     (.cinit.CpuTimer1RegsFile.load) [load image, compression = zero_init]
+                  0000be7c    00000004     (.cinit.CpuTimer2RegsFile.load) [load image, compression = zero_init]
+                  0000be80    00000004     (.cinit.EPwm1RegsFile.load) [load image, compression = zero_init]
+                  0000be84    00000004     (.cinit.EPwm2RegsFile.load) [load image, compression = zero_init]
+                  0000be88    00000004     (.cinit.EPwm3RegsFile.load) [load image, compression = zero_init]
+                  0000be8c    00000004     (.cinit.EPwm4RegsFile.load) [load image, compression = zero_init]
+                  0000be90    00000004     (.cinit.EPwm5RegsFile.load) [load image, compression = zero_init]
+                  0000be94    00000004     (.cinit.EPwm6RegsFile.load) [load image, compression = zero_init]
+                  0000be98    00000004     (.cinit.EPwm7RegsFile.load) [load image, compression = zero_init]
+                  0000be9c    00000004     (.cinit.EPwm8RegsFile.load) [load image, compression = zero_init]
+                  0000bea0    00000004     (.cinit.FlashRegsFile.load) [load image, compression = zero_init]
+                  0000bea4    00000004     (.cinit.GpioCtrlRegsFile.load) [load image, compression = zero_init]
+                  0000bea8    00000004     (.cinit.GpioDataRegsFile.load) [load image, compression = zero_init]
+                  0000beac    00000004     (.cinit.PieCtrlRegsFile.load) [load image, compression = zero_init]
+                  0000beb0    00000004     (.cinit.PieVectTableFile.load) [load image, compression = zero_init]
+                  0000beb4    00000004     (.cinit.SciaRegsFile.load) [load image, compression = zero_init]
+                  0000beb8    00000004     (.cinit.SysCtrlRegsFile.load) [load image, compression = zero_init]
+                  0000bebc    00000058     (__TI_cinit_table)
 
 .stack     0    00000400    00000300     UNINITIALIZED
                   00000400    00000300     --HOLE--
@@ -308,12 +308,12 @@ dispatch   0    0000bd75    000000b9
                   0000e972    00000002                            : _lock.c.obj (.data:_lock)
                   0000e974    00000002                            : _lock.c.obj (.data:_unlock)
 
-ramfuncs   0    0000be2e    0000001f     
-                  0000be2e    0000001b     F2806x_DevInit.obj (ramfuncs)
-                  0000be49    00000004     F2806x_usDelay.obj (ramfuncs)
+ramfuncs   0    0000be32    0000001f     
+                  0000be32    0000001b     F2806x_DevInit.obj (ramfuncs)
+                  0000be4d    00000004     F2806x_usDelay.obj (ramfuncs)
 
 .TI.ramfunc 
-*          0    0000be4d    00000000     UNINITIALIZED
+*          0    0000be51    00000000     UNINITIALIZED
 
 .reset     0    003fffc0    00000000     DSECT
 
@@ -325,7 +325,7 @@ MODULE SUMMARY
        ------                          ----    -------   -------
     .\output_TI2806x\
        Controller_hal.obj              2016    80        2186   
-       Controller.obj                  1406    156       113    
+       Controller.obj                  1410    156       113    
        F2806x_GlobalVariableDefs.obj   0       0         1082   
        pwm_2806x.obj                   850     0         0      
        dispatcher.obj                  499     0         48     
@@ -338,7 +338,7 @@ MODULE SUMMARY
        F2806x_CodeStartBranch.obj      10      0         0      
        F2806x_usDelay.obj              4       0         0      
     +--+-------------------------------+-------+---------+---------+
-       Total:                          6103    236       3493   
+       Total:                          6107    236       3493   
                                                                 
     C:\Users\fluky\AppData\Local\Programs\PLECS C2000 TSP\cgt\ti-cgt-c2000_18.12.8.LTS\LIB\rts2800_fpu32_eabi.lib
        s_floor.c.obj                   233     12        0      
@@ -384,39 +384,39 @@ MODULE SUMMARY
        Stack:                          0       0         768    
        Linker Generated:               0       192       0      
     +--+-------------------------------+-------+---------+---------+
-       Grand Total:                    13635   456       4271   
+       Grand Total:                    13639   456       4271   
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 0000beb8 records: 22, size/record: 4, table size: 88
-	.data: load addr=0000be50, load size=0000000e bytes, run addr=0000e964, run size=00000012 bytes, compression=lzss
-	.bss: load addr=0000be64, load size=00000004 bytes, run addr=0000e000, run size=00000963 bytes, compression=zero_init
-	AdcRegsFile: load addr=0000be68, load size=00000004 bytes, run addr=00007100, run size=00000050 bytes, compression=zero_init
-	AdcResultFile: load addr=0000be6c, load size=00000004 bytes, run addr=00000b00, run size=00000010 bytes, compression=zero_init
-	CpuTimer0RegsFile: load addr=0000be70, load size=00000004 bytes, run addr=00000c00, run size=00000008 bytes, compression=zero_init
-	CpuTimer1RegsFile: load addr=0000be74, load size=00000004 bytes, run addr=00000c08, run size=00000008 bytes, compression=zero_init
-	CpuTimer2RegsFile: load addr=0000be78, load size=00000004 bytes, run addr=00000c10, run size=00000008 bytes, compression=zero_init
-	EPwm1RegsFile: load addr=0000be7c, load size=00000004 bytes, run addr=00006800, run size=00000040 bytes, compression=zero_init
-	EPwm2RegsFile: load addr=0000be80, load size=00000004 bytes, run addr=00006840, run size=00000040 bytes, compression=zero_init
-	EPwm3RegsFile: load addr=0000be84, load size=00000004 bytes, run addr=00006880, run size=00000040 bytes, compression=zero_init
-	EPwm4RegsFile: load addr=0000be88, load size=00000004 bytes, run addr=000068c0, run size=00000040 bytes, compression=zero_init
-	EPwm5RegsFile: load addr=0000be8c, load size=00000004 bytes, run addr=00006900, run size=00000040 bytes, compression=zero_init
-	EPwm6RegsFile: load addr=0000be90, load size=00000004 bytes, run addr=00006940, run size=00000040 bytes, compression=zero_init
-	EPwm7RegsFile: load addr=0000be94, load size=00000004 bytes, run addr=00006980, run size=00000040 bytes, compression=zero_init
-	EPwm8RegsFile: load addr=0000be98, load size=00000004 bytes, run addr=000069c0, run size=00000040 bytes, compression=zero_init
-	FlashRegsFile: load addr=0000be9c, load size=00000004 bytes, run addr=00000a80, run size=00000008 bytes, compression=zero_init
-	GpioCtrlRegsFile: load addr=0000bea0, load size=00000004 bytes, run addr=00006f80, run size=00000040 bytes, compression=zero_init
-	GpioDataRegsFile: load addr=0000bea4, load size=00000004 bytes, run addr=00006fc0, run size=00000020 bytes, compression=zero_init
-	PieCtrlRegsFile: load addr=0000bea8, load size=00000004 bytes, run addr=00000ce0, run size=0000001a bytes, compression=zero_init
-	PieVectTableFile: load addr=0000beac, load size=00000004 bytes, run addr=00000d00, run size=00000100 bytes, compression=zero_init
-	SciaRegsFile: load addr=0000beb0, load size=00000004 bytes, run addr=00007050, run size=00000010 bytes, compression=zero_init
-	SysCtrlRegsFile: load addr=0000beb4, load size=00000004 bytes, run addr=00007010, run size=00000030 bytes, compression=zero_init
+__TI_cinit_table @ 0000bebc records: 22, size/record: 4, table size: 88
+	.data: load addr=0000be54, load size=0000000e bytes, run addr=0000e964, run size=00000012 bytes, compression=lzss
+	.bss: load addr=0000be68, load size=00000004 bytes, run addr=0000e000, run size=00000963 bytes, compression=zero_init
+	AdcRegsFile: load addr=0000be6c, load size=00000004 bytes, run addr=00007100, run size=00000050 bytes, compression=zero_init
+	AdcResultFile: load addr=0000be70, load size=00000004 bytes, run addr=00000b00, run size=00000010 bytes, compression=zero_init
+	CpuTimer0RegsFile: load addr=0000be74, load size=00000004 bytes, run addr=00000c00, run size=00000008 bytes, compression=zero_init
+	CpuTimer1RegsFile: load addr=0000be78, load size=00000004 bytes, run addr=00000c08, run size=00000008 bytes, compression=zero_init
+	CpuTimer2RegsFile: load addr=0000be7c, load size=00000004 bytes, run addr=00000c10, run size=00000008 bytes, compression=zero_init
+	EPwm1RegsFile: load addr=0000be80, load size=00000004 bytes, run addr=00006800, run size=00000040 bytes, compression=zero_init
+	EPwm2RegsFile: load addr=0000be84, load size=00000004 bytes, run addr=00006840, run size=00000040 bytes, compression=zero_init
+	EPwm3RegsFile: load addr=0000be88, load size=00000004 bytes, run addr=00006880, run size=00000040 bytes, compression=zero_init
+	EPwm4RegsFile: load addr=0000be8c, load size=00000004 bytes, run addr=000068c0, run size=00000040 bytes, compression=zero_init
+	EPwm5RegsFile: load addr=0000be90, load size=00000004 bytes, run addr=00006900, run size=00000040 bytes, compression=zero_init
+	EPwm6RegsFile: load addr=0000be94, load size=00000004 bytes, run addr=00006940, run size=00000040 bytes, compression=zero_init
+	EPwm7RegsFile: load addr=0000be98, load size=00000004 bytes, run addr=00006980, run size=00000040 bytes, compression=zero_init
+	EPwm8RegsFile: load addr=0000be9c, load size=00000004 bytes, run addr=000069c0, run size=00000040 bytes, compression=zero_init
+	FlashRegsFile: load addr=0000bea0, load size=00000004 bytes, run addr=00000a80, run size=00000008 bytes, compression=zero_init
+	GpioCtrlRegsFile: load addr=0000bea4, load size=00000004 bytes, run addr=00006f80, run size=00000040 bytes, compression=zero_init
+	GpioDataRegsFile: load addr=0000bea8, load size=00000004 bytes, run addr=00006fc0, run size=00000020 bytes, compression=zero_init
+	PieCtrlRegsFile: load addr=0000beac, load size=00000004 bytes, run addr=00000ce0, run size=0000001a bytes, compression=zero_init
+	PieVectTableFile: load addr=0000beb0, load size=00000004 bytes, run addr=00000d00, run size=00000100 bytes, compression=zero_init
+	SciaRegsFile: load addr=0000beb4, load size=00000004 bytes, run addr=00007050, run size=00000010 bytes, compression=zero_init
+	SysCtrlRegsFile: load addr=0000beb8, load size=00000004 bytes, run addr=00007010, run size=00000030 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 0000be5e records: 3, size/record: 2, table size: 6
+__TI_handler_table @ 0000be62 records: 3, size/record: 2, table size: 6
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_lzss
 	index: 2, handler: __TI_decompress_none
@@ -530,17 +530,17 @@ page  address   name
 0     0000e7e2  AdcObj                               
 1     00007100  AdcRegs                              
 1     00000b00  AdcResult                            
-0     0000bc54  C$$EXIT                              
+0     0000bc58  C$$EXIT                              
 0     0000e844  Controller_B                         
 0     0000886c  Controller_ExtModeSignals            
 0     0000e840  Controller_X                         
 0     0000891d  Controller_background                
-0     0000bb97  Controller_baseTaskInterrupt         
+0     0000bb9b  Controller_baseTaskInterrupt         
 0     000088dc  Controller_checksum                  
 0     0000890c  Controller_enableTasksInterrupt      
 0     0000e842  Controller_errorStatus               
 0     00008b32  Controller_initHal                   
-0     00009a9e  Controller_initialize                
+0     00009aa2  Controller_initialize                
 0     000088bc  Controller_sampleTime                
 0     000096d5  Controller_step                      
 0     00008918  Controller_syncTimers                
@@ -548,18 +548,18 @@ page  address   name
 1     00000c00  CpuTimer0Regs                        
 1     00000c08  CpuTimer1Regs                        
 1     00000c10  CpuTimer2Regs                        
-0     0000b2a7  DISPR_background                     
-0     0000b3ac  DISPR_configure                      
-0     0000bd75  DISPR_dispatch                       
-0     0000b3a6  DISPR_registerIdleTask               
-0     0000b3a0  DISPR_registerSyncCallback           
-0     0000b35a  DISPR_registerTask                   
-0     0000b294  DISPR_reset                          
-0     0000b354  DISPR_setPowerupDelay                
-0     0000b348  DISPR_sinit                          
-0     0000b30f  DISPR_start                          
-0     0000be49  DSP28x_usDelay                       
-0     0000b7c0  DeviceInit                           
+0     0000b2ab  DISPR_background                     
+0     0000b3b0  DISPR_configure                      
+0     0000bd79  DISPR_dispatch                       
+0     0000b3aa  DISPR_registerIdleTask               
+0     0000b3a4  DISPR_registerSyncCallback           
+0     0000b35e  DISPR_registerTask                   
+0     0000b298  DISPR_reset                          
+0     0000b358  DISPR_setPowerupDelay                
+0     0000b34c  DISPR_sinit                          
+0     0000b313  DISPR_start                          
+0     0000be4d  DSP28x_usDelay                       
+0     0000b7c4  DeviceInit                           
 0     0000e95e  DinHandles                           
 0     0000e942  DinObj                               
 0     0000e880  DisprHandle                          
@@ -576,18 +576,18 @@ page  address   name
 1     000069c0  EPwm8Regs                            
 0     0000e936  EpwmHandles                          
 0     0000e91e  EpwmObj                              
-0     0000b7aa  ExtOscSel                            
+0     0000b7ae  ExtOscSel                            
 1     00000a80  FlashRegs                            
 1     00006f80  GpioCtrlRegs                         
 1     00006fc0  GpioDataRegs                         
-0     0000bd3b  ISR_ILLEGAL                          
-0     0000be2e  InitFlash                            
-0     0000b740  IntOsc1Sel                           
-0     0000b796  IntOsc2Sel                           
-0     0000b78c  MemCopy                              
-0     0000ab97  PIL_BSRVS_init                       
-0     0000ac1c  PIL_BSRVS_messageHandler             
-0     0000abaf  PIL_BSRVS_setWriteInterlockHandler   
+0     0000bd3f  ISR_ILLEGAL                          
+0     0000be32  InitFlash                            
+0     0000b744  IntOsc1Sel                           
+0     0000b79a  IntOsc2Sel                           
+0     0000b790  MemCopy                              
+0     0000ab9b  PIL_BSRVS_init                       
+0     0000ac20  PIL_BSRVS_messageHandler             
+0     0000abb3  PIL_BSRVS_setWriteInterlockHandler   
 0     000088f2  PIL_C_ExtMode_ExtModeSignals_Ptr     
 0     000088f4  PIL_C_ExtMode_ExtModeSignals_Size    
 0     000088f0  PIL_C_ExtMode_checksum_Ptr           
@@ -601,11 +601,11 @@ page  address   name
 0     00008880  PIL_D_FrameworkVersion               
 0     00008884  PIL_D_Guid                           
 0     00008881  PIL_D_StationAddress                 
-0     0000bd5e  PIL_DisableInt                       
-0     0000afcb  PIL_PBRIDGE_configure                
-0     0000afbf  PIL_PBRIDGE_init                     
-0     0000b11c  PIL_PBRIDGE_poll                     
-0     0000afd4  PIL_PBRIDGE_setProtocol              
+0     0000bd62  PIL_DisableInt                       
+0     0000afcf  PIL_PBRIDGE_configure                
+0     0000afc3  PIL_PBRIDGE_init                     
+0     0000b120  PIL_PBRIDGE_poll                     
+0     0000afd8  PIL_PBRIDGE_setProtocol              
 0     00009104  PIL_PROBES_getActualPilMode          
 0     00009119  PIL_PROBES_getActualPilStep          
 0     0000910b  PIL_PROBES_getDesiredPilMode         
@@ -616,54 +616,54 @@ page  address   name
 0     000090e2  PIL_PROBES_setActualPilMode          
 0     000090f8  PIL_PROBES_setActualPilStep          
 0     000090ef  PIL_PROBES_setDesiredPilMode         
-0     0000ae3c  PIL_RA_init                          
-0     0000af72  PIL_RA_pollLinkReq                   
-0     0000af1e  PIL_RA_pollLinkRsp                   
-0     0000aed7  PIL_RA_registerService               
-0     0000a125  PIL_RA_serialIn                      
-0     0000aeff  PIL_RA_serialIn_p                    
-0     0000a135  PIL_RA_serialOut                     
-0     0000af0f  PIL_RA_serialOut_p                   
-0     0000aeb3  PIL_RA_setChecksum                   
-0     0000ae9b  PIL_RA_setGuid                       
-0     0000aecb  PIL_RA_setNodeAddress                
-0     0000ba21  PIL_RBUF_isEmpty                     
-0     0000ba59  PIL_RBUF_pop                         
-0     0000ba2f  PIL_RBUF_push                        
-0     0000ba16  PIL_RBUF_reset                       
-0     0000bd62  PIL_RestoreInt                       
-0     00009c78  PIL_SCOPE_init                       
-0     00009efa  PIL_SCOPE_messageHandler             
-0     0000a144  PIL_SCOPE_sample                     
-0     00009d5c  PIL_SCOPE_sample_p                   
-0     00009c93  PIL_SCOPE_setBuffer                  
-0     0000a152  PIL_SCOPE_trigger                    
-0     00009dfd  PIL_SCOPE_trigger_p                  
+0     0000ae40  PIL_RA_init                          
+0     0000af76  PIL_RA_pollLinkReq                   
+0     0000af22  PIL_RA_pollLinkRsp                   
+0     0000aedb  PIL_RA_registerService               
+0     0000a129  PIL_RA_serialIn                      
+0     0000af03  PIL_RA_serialIn_p                    
+0     0000a139  PIL_RA_serialOut                     
+0     0000af13  PIL_RA_serialOut_p                   
+0     0000aeb7  PIL_RA_setChecksum                   
+0     0000ae9f  PIL_RA_setGuid                       
+0     0000aecf  PIL_RA_setNodeAddress                
+0     0000ba25  PIL_RBUF_isEmpty                     
+0     0000ba5d  PIL_RBUF_pop                         
+0     0000ba33  PIL_RBUF_push                        
+0     0000ba1a  PIL_RBUF_reset                       
+0     0000bd66  PIL_RestoreInt                       
+0     00009c7c  PIL_SCOPE_init                       
+0     00009efe  PIL_SCOPE_messageHandler             
+0     0000a148  PIL_SCOPE_sample                     
+0     00009d60  PIL_SCOPE_sample_p                   
+0     00009c97  PIL_SCOPE_setBuffer                  
+0     0000a156  PIL_SCOPE_trigger                    
+0     00009e01  PIL_SCOPE_trigger_p                  
 0     000088cc  PIL_SLINK_crc16Lookup                
-0     0000a897  PIL_SLINK_in                         
-0     0000a86f  PIL_SLINK_init                       
-0     0000a8a4  PIL_SLINK_out                        
-0     0000a8df  PIL_SLINK_outBufIsEmpty              
-0     0000aa78  PIL_SLINK_receive                    
-0     0000aa58  PIL_SLINK_send                       
-0     0000a244  PIL_allowPilSimulation               
-0     0000a39b  PIL_backgroundCall                   
-0     0000a2e3  PIL_beginInterruptCall               
-0     0000a1e7  PIL_configureParallelCom             
-0     0000a26f  PIL_inhibitPilSimulation             
-0     0000a457  PIL_init                             
-0     0000a29a  PIL_requestNormalMode                
-0     0000a2b3  PIL_requestReadyMode                 
-0     0000a22d  PIL_setAndConfigScopeBuffer          
-0     0000a21f  PIL_setBackgroundCommCallback        
-0     0000a185  PIL_setChecksum                      
-0     0000a211  PIL_setCtrlCallback                  
-0     0000a160  PIL_setGuid                          
-0     0000a201  PIL_setNodeAddress                   
-0     0000a1ce  PIL_setSerialComCallback             
-0     0000a43b  PIL_setWriteInterlockHandler         
-0     0000a2cc  PIL_simulationActive                 
-0     0000b750  PLLset                               
+0     0000a89b  PIL_SLINK_in                         
+0     0000a873  PIL_SLINK_init                       
+0     0000a8a8  PIL_SLINK_out                        
+0     0000a8e3  PIL_SLINK_outBufIsEmpty              
+0     0000aa7c  PIL_SLINK_receive                    
+0     0000aa5c  PIL_SLINK_send                       
+0     0000a248  PIL_allowPilSimulation               
+0     0000a39f  PIL_backgroundCall                   
+0     0000a2e7  PIL_beginInterruptCall               
+0     0000a1eb  PIL_configureParallelCom             
+0     0000a273  PIL_inhibitPilSimulation             
+0     0000a45b  PIL_init                             
+0     0000a29e  PIL_requestNormalMode                
+0     0000a2b7  PIL_requestReadyMode                 
+0     0000a231  PIL_setAndConfigScopeBuffer          
+0     0000a223  PIL_setBackgroundCommCallback        
+0     0000a189  PIL_setChecksum                      
+0     0000a215  PIL_setCtrlCallback                  
+0     0000a164  PIL_setGuid                          
+0     0000a205  PIL_setNodeAddress                   
+0     0000a1d2  PIL_setSerialComCallback             
+0     0000a43f  PIL_setWriteInterlockHandler         
+0     0000a2d0  PIL_simulationActive                 
+0     0000b754  PLLset                               
 0     00008b14  PLXHAL_ADC_getIn                     
 0     00008af6  PLXHAL_DIO_get                       
 0     00008ad6  PLXHAL_DIO_set                       
@@ -681,47 +681,47 @@ page  address   name
 0     00008988  PLXHAL_PWM_setSequence               
 0     00008986  PLXHAL_PWM_setToOperational          
 0     00008984  PLXHAL_PWM_setToPassive              
-0     0000b4d0  PLXHAL_PWR_isEnabled                 
+0     0000b4d4  PLXHAL_PWR_isEnabled                 
 0     0000897f  PLXHAL_PWR_setEnableRequest          
 0     0000895c  PLXHAL_PWR_syncdPwmEnable            
-0     0000b252  PLX_AIN_configure                    
-0     0000b1f8  PLX_AIN_getRegisterBase              
-0     0000b1f1  PLX_AIN_init                         
-0     0000b1db  PLX_AIN_resetChannelSetup            
-0     0000b1cf  PLX_AIN_setDefaultAdcParams          
-0     0000b1be  PLX_AIN_setDefaultChannelParams      
-0     0000b17b  PLX_AIN_setupChannel                 
-0     0000b131  PLX_AIN_sinit                        
-0     0000b5c0  PLX_DIO_configureIn                  
-0     0000b590  PLX_DIO_configureOut                 
-0     0000b51c  PLX_DIO_init                         
-0     0000b514  PLX_DIO_obtainDummyRead              
-0     0000b511  PLX_DIO_obtainDummyWrite             
-0     0000b4fd  PLX_DIO_sinit                        
-0     0000a651  PLX_PWM_configure                    
-0     0000a61c  PLX_PWM_getRegisterBase              
-0     0000a615  PLX_PWM_init                         
-0     0000a5dd  PLX_PWM_scalePeriod                  
-0     0000a58e  PLX_PWM_setDefaultParams             
-0     0000a52f  PLX_PWM_setPhase                     
-0     0000a51d  PLX_PWM_sinit                        
+0     0000b256  PLX_AIN_configure                    
+0     0000b1fc  PLX_AIN_getRegisterBase              
+0     0000b1f5  PLX_AIN_init                         
+0     0000b1df  PLX_AIN_resetChannelSetup            
+0     0000b1d3  PLX_AIN_setDefaultAdcParams          
+0     0000b1c2  PLX_AIN_setDefaultChannelParams      
+0     0000b17f  PLX_AIN_setupChannel                 
+0     0000b135  PLX_AIN_sinit                        
+0     0000b5c4  PLX_DIO_configureIn                  
+0     0000b594  PLX_DIO_configureOut                 
+0     0000b520  PLX_DIO_init                         
+0     0000b518  PLX_DIO_obtainDummyRead              
+0     0000b515  PLX_DIO_obtainDummyWrite             
+0     0000b501  PLX_DIO_sinit                        
+0     0000a655  PLX_PWM_configure                    
+0     0000a620  PLX_PWM_getRegisterBase              
+0     0000a619  PLX_PWM_init                         
+0     0000a5e1  PLX_PWM_scalePeriod                  
+0     0000a592  PLX_PWM_setDefaultParams             
+0     0000a533  PLX_PWM_setPhase                     
+0     0000a521  PLX_PWM_sinit                        
 0     0000e900  PLX_PWR_SHandle                      
 0     0000e902  PLX_PWR_SObj                         
-0     0000b4ea  PLX_PWR_configure                    
-0     0000b4d0  PLX_PWR_isEnabled                    
-0     0000b4c2  PLX_PWR_isReadyForEnable             
-0     0000b4b1  PLX_PWR_registerPwmChannel           
-0     0000b422  PLX_PWR_runFsm                       
-0     0000b3de  PLX_PWR_setEnableRequest             
-0     0000b3d5  PLX_PWR_setPilMode                   
-0     0000b3ce  PLX_PWR_sinit                        
-0     0000bb3b  PLX_SCI_configure                    
-0     0000bb34  PLX_SCI_init                         
-0     0000badd  PLX_SCI_setupPort                    
-0     0000b721  PieCntlInit                          
+0     0000b4ee  PLX_PWR_configure                    
+0     0000b4d4  PLX_PWR_isEnabled                    
+0     0000b4c6  PLX_PWR_isReadyForEnable             
+0     0000b4b5  PLX_PWR_registerPwmChannel           
+0     0000b426  PLX_PWR_runFsm                       
+0     0000b3e2  PLX_PWR_setEnableRequest             
+0     0000b3d9  PLX_PWR_setPilMode                   
+0     0000b3d2  PLX_PWR_sinit                        
+0     0000bb3f  PLX_SCI_configure                    
+0     0000bb38  PLX_SCI_init                         
+0     0000bae1  PLX_SCI_setupPort                    
+0     0000b725  PieCntlInit                          
 1     00000ce0  PieCtrlRegs                          
 1     00000d00  PieVectTable                         
-0     0000b70d  PieVectTableInit                     
+0     0000b711  PieVectTableInit                     
 0     0000e96a  PilHandle                            
 0     0000e440  PilObj                               
 0     0000e400  SciHandle                            
@@ -730,55 +730,55 @@ page  address   name
 0     0000e000  ScopeBuffer                          
 1     00007010  SysCtrlRegs                          
 0     0000e8b0  TaskObj                              
-0     0000b705  WDogDisable                          
-0     0000beb8  __TI_CINIT_Base                      
-0     0000bf10  __TI_CINIT_Limit                     
-0     0000be5e  __TI_Handler_Table_Base              
-0     0000be64  __TI_Handler_Table_Limit             
+0     0000b709  WDogDisable                          
+0     0000bebc  __TI_CINIT_Base                      
+0     0000bf14  __TI_CINIT_Limit                     
+0     0000be62  __TI_Handler_Table_Base              
+0     0000be68  __TI_Handler_Table_Limit             
 0     00000700  __TI_STACK_END                       
 abs   00000300  __TI_STACK_SIZE                      
-0     0000bbff  __TI_auto_init_nobinit_nopinit       
+0     0000bc03  __TI_auto_init_nobinit_nopinit       
 0     0000e96e  __TI_cleanup_ptr                     
-0     0000bbce  __TI_decompress_lzss                 
-0     0000bd56  __TI_decompress_none                 
+0     0000bbd2  __TI_decompress_lzss                 
+0     0000bd5a  __TI_decompress_none                 
 0     0000e970  __TI_dtors_ptr                       
 0     0000e96c  __TI_enable_exit_profile_output      
 abs   ffffffff  __TI_pprof_out_hndl                  
 abs   ffffffff  __TI_prof_data_size                  
 abs   ffffffff  __TI_prof_data_start                 
-0     0000bd6c  __TI_zero_init                       
-0     0000b7e4  __c28xabi_addd                       
-0     0000bcf0  __c28xabi_andll                      
-0     0000bc2a  __c28xabi_cmpd                       
-0     0000b880  __c28xabi_divd                       
-0     0000b90b  __c28xabi_divf                       
-0     0000bc7d  __c28xabi_dtol                       
-0     0000bcd5  __c28xabi_dtoul                      
-0     0000bcb9  __c28xabi_ftod                       
-0     0000b993  __c28xabi_mpyd                       
-0     0000bcf8  __c28xabi_orll                       
-0     0000bd00  __c28xabi_xorll                      
+0     0000bd70  __TI_zero_init                       
+0     0000b7e8  __c28xabi_addd                       
+0     0000bcf4  __c28xabi_andll                      
+0     0000bc2e  __c28xabi_cmpd                       
+0     0000b884  __c28xabi_divd                       
+0     0000b90f  __c28xabi_divf                       
+0     0000bc81  __c28xabi_dtol                       
+0     0000bcd9  __c28xabi_dtoul                      
+0     0000bcbd  __c28xabi_ftod                       
+0     0000b997  __c28xabi_mpyd                       
+0     0000bcfc  __c28xabi_orll                       
+0     0000bd04  __c28xabi_xorll                      
 n/a   UNDEFED   __c_args__                           
 0     00000400  __stack                              
-0     0000bd2f  _args_main                           
-0     0000bd08  _c_int00                             
+0     0000bd33  _args_main                           
+0     0000bd0c  _c_int00                             
 0     0000e972  _lock                                
-0     0000bd4d  _nop                                 
-0     0000bd49  _register_lock                       
-0     0000bd45  _register_unlock                     
-0     0000bd74  _system_post_cinit                   
-0     0000bd72  _system_pre_init                     
+0     0000bd51  _nop                                 
+0     0000bd4d  _register_lock                       
+0     0000bd49  _register_unlock                     
+0     0000bd78  _system_post_cinit                   
+0     0000bd76  _system_pre_init                     
 0     0000e974  _unlock                              
-0     0000bc54  abort                                
+0     0000bc58  abort                                
 0     00008800  code_start                           
-0     0000ba7a  cosf                                 
-0     0000bc56  exit                                 
-0     0000b61c  floor                                
-0     0000b61c  floorl                               
-0     0000bd1f  main                                 
-0     0000bc9c  memcpy                               
-0     0000bd65  memset                               
-0     0000bb3e  sinf                                 
+0     0000ba7e  cosf                                 
+0     0000bc5a  exit                                 
+0     0000b620  floor                                
+0     0000b620  floorl                               
+0     0000bd23  main                                 
+0     0000bca0  memcpy                               
+0     0000bd69  memset                               
+0     0000bb42  sinf                                 
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -840,153 +840,153 @@ page  address   name
 0     00009257  PIL_PROBES_messageHandler            
 0     000096d4  Controller_terminate                 
 0     000096d5  Controller_step                      
-0     00009a9e  Controller_initialize                
-0     00009c78  PIL_SCOPE_init                       
-0     00009c93  PIL_SCOPE_setBuffer                  
-0     00009d5c  PIL_SCOPE_sample_p                   
-0     00009dfd  PIL_SCOPE_trigger_p                  
-0     00009efa  PIL_SCOPE_messageHandler             
-0     0000a125  PIL_RA_serialIn                      
-0     0000a135  PIL_RA_serialOut                     
-0     0000a144  PIL_SCOPE_sample                     
-0     0000a152  PIL_SCOPE_trigger                    
-0     0000a160  PIL_setGuid                          
-0     0000a185  PIL_setChecksum                      
-0     0000a1ce  PIL_setSerialComCallback             
-0     0000a1e7  PIL_configureParallelCom             
-0     0000a201  PIL_setNodeAddress                   
-0     0000a211  PIL_setCtrlCallback                  
-0     0000a21f  PIL_setBackgroundCommCallback        
-0     0000a22d  PIL_setAndConfigScopeBuffer          
-0     0000a244  PIL_allowPilSimulation               
-0     0000a26f  PIL_inhibitPilSimulation             
-0     0000a29a  PIL_requestNormalMode                
-0     0000a2b3  PIL_requestReadyMode                 
-0     0000a2cc  PIL_simulationActive                 
-0     0000a2e3  PIL_beginInterruptCall               
-0     0000a39b  PIL_backgroundCall                   
-0     0000a43b  PIL_setWriteInterlockHandler         
-0     0000a457  PIL_init                             
-0     0000a51d  PLX_PWM_sinit                        
-0     0000a52f  PLX_PWM_setPhase                     
-0     0000a58e  PLX_PWM_setDefaultParams             
-0     0000a5dd  PLX_PWM_scalePeriod                  
-0     0000a615  PLX_PWM_init                         
-0     0000a61c  PLX_PWM_getRegisterBase              
-0     0000a651  PLX_PWM_configure                    
-0     0000a86f  PIL_SLINK_init                       
-0     0000a897  PIL_SLINK_in                         
-0     0000a8a4  PIL_SLINK_out                        
-0     0000a8df  PIL_SLINK_outBufIsEmpty              
-0     0000aa58  PIL_SLINK_send                       
-0     0000aa78  PIL_SLINK_receive                    
-0     0000ab97  PIL_BSRVS_init                       
-0     0000abaf  PIL_BSRVS_setWriteInterlockHandler   
-0     0000ac1c  PIL_BSRVS_messageHandler             
-0     0000ae3c  PIL_RA_init                          
-0     0000ae9b  PIL_RA_setGuid                       
-0     0000aeb3  PIL_RA_setChecksum                   
-0     0000aecb  PIL_RA_setNodeAddress                
-0     0000aed7  PIL_RA_registerService               
-0     0000aeff  PIL_RA_serialIn_p                    
-0     0000af0f  PIL_RA_serialOut_p                   
-0     0000af1e  PIL_RA_pollLinkRsp                   
-0     0000af72  PIL_RA_pollLinkReq                   
-0     0000afbf  PIL_PBRIDGE_init                     
-0     0000afcb  PIL_PBRIDGE_configure                
-0     0000afd4  PIL_PBRIDGE_setProtocol              
-0     0000b11c  PIL_PBRIDGE_poll                     
-0     0000b131  PLX_AIN_sinit                        
-0     0000b17b  PLX_AIN_setupChannel                 
-0     0000b1be  PLX_AIN_setDefaultChannelParams      
-0     0000b1cf  PLX_AIN_setDefaultAdcParams          
-0     0000b1db  PLX_AIN_resetChannelSetup            
-0     0000b1f1  PLX_AIN_init                         
-0     0000b1f8  PLX_AIN_getRegisterBase              
-0     0000b252  PLX_AIN_configure                    
-0     0000b294  DISPR_reset                          
-0     0000b2a7  DISPR_background                     
-0     0000b30f  DISPR_start                          
-0     0000b348  DISPR_sinit                          
-0     0000b354  DISPR_setPowerupDelay                
-0     0000b35a  DISPR_registerTask                   
-0     0000b3a0  DISPR_registerSyncCallback           
-0     0000b3a6  DISPR_registerIdleTask               
-0     0000b3ac  DISPR_configure                      
-0     0000b3ce  PLX_PWR_sinit                        
-0     0000b3d5  PLX_PWR_setPilMode                   
-0     0000b3de  PLX_PWR_setEnableRequest             
-0     0000b422  PLX_PWR_runFsm                       
-0     0000b4b1  PLX_PWR_registerPwmChannel           
-0     0000b4c2  PLX_PWR_isReadyForEnable             
-0     0000b4d0  PLXHAL_PWR_isEnabled                 
-0     0000b4d0  PLX_PWR_isEnabled                    
-0     0000b4ea  PLX_PWR_configure                    
-0     0000b4fd  PLX_DIO_sinit                        
-0     0000b511  PLX_DIO_obtainDummyWrite             
-0     0000b514  PLX_DIO_obtainDummyRead              
-0     0000b51c  PLX_DIO_init                         
-0     0000b590  PLX_DIO_configureOut                 
-0     0000b5c0  PLX_DIO_configureIn                  
-0     0000b61c  floor                                
-0     0000b61c  floorl                               
-0     0000b705  WDogDisable                          
-0     0000b70d  PieVectTableInit                     
-0     0000b721  PieCntlInit                          
-0     0000b740  IntOsc1Sel                           
-0     0000b750  PLLset                               
-0     0000b78c  MemCopy                              
-0     0000b796  IntOsc2Sel                           
-0     0000b7aa  ExtOscSel                            
-0     0000b7c0  DeviceInit                           
-0     0000b7e4  __c28xabi_addd                       
-0     0000b880  __c28xabi_divd                       
-0     0000b90b  __c28xabi_divf                       
-0     0000b993  __c28xabi_mpyd                       
-0     0000ba16  PIL_RBUF_reset                       
-0     0000ba21  PIL_RBUF_isEmpty                     
-0     0000ba2f  PIL_RBUF_push                        
-0     0000ba59  PIL_RBUF_pop                         
-0     0000ba7a  cosf                                 
-0     0000badd  PLX_SCI_setupPort                    
-0     0000bb34  PLX_SCI_init                         
-0     0000bb3b  PLX_SCI_configure                    
-0     0000bb3e  sinf                                 
-0     0000bb97  Controller_baseTaskInterrupt         
-0     0000bbce  __TI_decompress_lzss                 
-0     0000bbff  __TI_auto_init_nobinit_nopinit       
-0     0000bc2a  __c28xabi_cmpd                       
-0     0000bc54  C$$EXIT                              
-0     0000bc54  abort                                
-0     0000bc56  exit                                 
-0     0000bc7d  __c28xabi_dtol                       
-0     0000bc9c  memcpy                               
-0     0000bcb9  __c28xabi_ftod                       
-0     0000bcd5  __c28xabi_dtoul                      
-0     0000bcf0  __c28xabi_andll                      
-0     0000bcf8  __c28xabi_orll                       
-0     0000bd00  __c28xabi_xorll                      
-0     0000bd08  _c_int00                             
-0     0000bd1f  main                                 
-0     0000bd2f  _args_main                           
-0     0000bd3b  ISR_ILLEGAL                          
-0     0000bd45  _register_unlock                     
-0     0000bd49  _register_lock                       
-0     0000bd4d  _nop                                 
-0     0000bd56  __TI_decompress_none                 
-0     0000bd5e  PIL_DisableInt                       
-0     0000bd62  PIL_RestoreInt                       
-0     0000bd65  memset                               
-0     0000bd6c  __TI_zero_init                       
-0     0000bd72  _system_pre_init                     
-0     0000bd74  _system_post_cinit                   
-0     0000bd75  DISPR_dispatch                       
-0     0000be2e  InitFlash                            
-0     0000be49  DSP28x_usDelay                       
-0     0000be5e  __TI_Handler_Table_Base              
-0     0000be64  __TI_Handler_Table_Limit             
-0     0000beb8  __TI_CINIT_Base                      
-0     0000bf10  __TI_CINIT_Limit                     
+0     00009aa2  Controller_initialize                
+0     00009c7c  PIL_SCOPE_init                       
+0     00009c97  PIL_SCOPE_setBuffer                  
+0     00009d60  PIL_SCOPE_sample_p                   
+0     00009e01  PIL_SCOPE_trigger_p                  
+0     00009efe  PIL_SCOPE_messageHandler             
+0     0000a129  PIL_RA_serialIn                      
+0     0000a139  PIL_RA_serialOut                     
+0     0000a148  PIL_SCOPE_sample                     
+0     0000a156  PIL_SCOPE_trigger                    
+0     0000a164  PIL_setGuid                          
+0     0000a189  PIL_setChecksum                      
+0     0000a1d2  PIL_setSerialComCallback             
+0     0000a1eb  PIL_configureParallelCom             
+0     0000a205  PIL_setNodeAddress                   
+0     0000a215  PIL_setCtrlCallback                  
+0     0000a223  PIL_setBackgroundCommCallback        
+0     0000a231  PIL_setAndConfigScopeBuffer          
+0     0000a248  PIL_allowPilSimulation               
+0     0000a273  PIL_inhibitPilSimulation             
+0     0000a29e  PIL_requestNormalMode                
+0     0000a2b7  PIL_requestReadyMode                 
+0     0000a2d0  PIL_simulationActive                 
+0     0000a2e7  PIL_beginInterruptCall               
+0     0000a39f  PIL_backgroundCall                   
+0     0000a43f  PIL_setWriteInterlockHandler         
+0     0000a45b  PIL_init                             
+0     0000a521  PLX_PWM_sinit                        
+0     0000a533  PLX_PWM_setPhase                     
+0     0000a592  PLX_PWM_setDefaultParams             
+0     0000a5e1  PLX_PWM_scalePeriod                  
+0     0000a619  PLX_PWM_init                         
+0     0000a620  PLX_PWM_getRegisterBase              
+0     0000a655  PLX_PWM_configure                    
+0     0000a873  PIL_SLINK_init                       
+0     0000a89b  PIL_SLINK_in                         
+0     0000a8a8  PIL_SLINK_out                        
+0     0000a8e3  PIL_SLINK_outBufIsEmpty              
+0     0000aa5c  PIL_SLINK_send                       
+0     0000aa7c  PIL_SLINK_receive                    
+0     0000ab9b  PIL_BSRVS_init                       
+0     0000abb3  PIL_BSRVS_setWriteInterlockHandler   
+0     0000ac20  PIL_BSRVS_messageHandler             
+0     0000ae40  PIL_RA_init                          
+0     0000ae9f  PIL_RA_setGuid                       
+0     0000aeb7  PIL_RA_setChecksum                   
+0     0000aecf  PIL_RA_setNodeAddress                
+0     0000aedb  PIL_RA_registerService               
+0     0000af03  PIL_RA_serialIn_p                    
+0     0000af13  PIL_RA_serialOut_p                   
+0     0000af22  PIL_RA_pollLinkRsp                   
+0     0000af76  PIL_RA_pollLinkReq                   
+0     0000afc3  PIL_PBRIDGE_init                     
+0     0000afcf  PIL_PBRIDGE_configure                
+0     0000afd8  PIL_PBRIDGE_setProtocol              
+0     0000b120  PIL_PBRIDGE_poll                     
+0     0000b135  PLX_AIN_sinit                        
+0     0000b17f  PLX_AIN_setupChannel                 
+0     0000b1c2  PLX_AIN_setDefaultChannelParams      
+0     0000b1d3  PLX_AIN_setDefaultAdcParams          
+0     0000b1df  PLX_AIN_resetChannelSetup            
+0     0000b1f5  PLX_AIN_init                         
+0     0000b1fc  PLX_AIN_getRegisterBase              
+0     0000b256  PLX_AIN_configure                    
+0     0000b298  DISPR_reset                          
+0     0000b2ab  DISPR_background                     
+0     0000b313  DISPR_start                          
+0     0000b34c  DISPR_sinit                          
+0     0000b358  DISPR_setPowerupDelay                
+0     0000b35e  DISPR_registerTask                   
+0     0000b3a4  DISPR_registerSyncCallback           
+0     0000b3aa  DISPR_registerIdleTask               
+0     0000b3b0  DISPR_configure                      
+0     0000b3d2  PLX_PWR_sinit                        
+0     0000b3d9  PLX_PWR_setPilMode                   
+0     0000b3e2  PLX_PWR_setEnableRequest             
+0     0000b426  PLX_PWR_runFsm                       
+0     0000b4b5  PLX_PWR_registerPwmChannel           
+0     0000b4c6  PLX_PWR_isReadyForEnable             
+0     0000b4d4  PLXHAL_PWR_isEnabled                 
+0     0000b4d4  PLX_PWR_isEnabled                    
+0     0000b4ee  PLX_PWR_configure                    
+0     0000b501  PLX_DIO_sinit                        
+0     0000b515  PLX_DIO_obtainDummyWrite             
+0     0000b518  PLX_DIO_obtainDummyRead              
+0     0000b520  PLX_DIO_init                         
+0     0000b594  PLX_DIO_configureOut                 
+0     0000b5c4  PLX_DIO_configureIn                  
+0     0000b620  floor                                
+0     0000b620  floorl                               
+0     0000b709  WDogDisable                          
+0     0000b711  PieVectTableInit                     
+0     0000b725  PieCntlInit                          
+0     0000b744  IntOsc1Sel                           
+0     0000b754  PLLset                               
+0     0000b790  MemCopy                              
+0     0000b79a  IntOsc2Sel                           
+0     0000b7ae  ExtOscSel                            
+0     0000b7c4  DeviceInit                           
+0     0000b7e8  __c28xabi_addd                       
+0     0000b884  __c28xabi_divd                       
+0     0000b90f  __c28xabi_divf                       
+0     0000b997  __c28xabi_mpyd                       
+0     0000ba1a  PIL_RBUF_reset                       
+0     0000ba25  PIL_RBUF_isEmpty                     
+0     0000ba33  PIL_RBUF_push                        
+0     0000ba5d  PIL_RBUF_pop                         
+0     0000ba7e  cosf                                 
+0     0000bae1  PLX_SCI_setupPort                    
+0     0000bb38  PLX_SCI_init                         
+0     0000bb3f  PLX_SCI_configure                    
+0     0000bb42  sinf                                 
+0     0000bb9b  Controller_baseTaskInterrupt         
+0     0000bbd2  __TI_decompress_lzss                 
+0     0000bc03  __TI_auto_init_nobinit_nopinit       
+0     0000bc2e  __c28xabi_cmpd                       
+0     0000bc58  C$$EXIT                              
+0     0000bc58  abort                                
+0     0000bc5a  exit                                 
+0     0000bc81  __c28xabi_dtol                       
+0     0000bca0  memcpy                               
+0     0000bcbd  __c28xabi_ftod                       
+0     0000bcd9  __c28xabi_dtoul                      
+0     0000bcf4  __c28xabi_andll                      
+0     0000bcfc  __c28xabi_orll                       
+0     0000bd04  __c28xabi_xorll                      
+0     0000bd0c  _c_int00                             
+0     0000bd23  main                                 
+0     0000bd33  _args_main                           
+0     0000bd3f  ISR_ILLEGAL                          
+0     0000bd49  _register_unlock                     
+0     0000bd4d  _register_lock                       
+0     0000bd51  _nop                                 
+0     0000bd5a  __TI_decompress_none                 
+0     0000bd62  PIL_DisableInt                       
+0     0000bd66  PIL_RestoreInt                       
+0     0000bd69  memset                               
+0     0000bd70  __TI_zero_init                       
+0     0000bd76  _system_pre_init                     
+0     0000bd78  _system_post_cinit                   
+0     0000bd79  DISPR_dispatch                       
+0     0000be32  InitFlash                            
+0     0000be4d  DSP28x_usDelay                       
+0     0000be62  __TI_Handler_Table_Base              
+0     0000be68  __TI_Handler_Table_Limit             
+0     0000bebc  __TI_CINIT_Base                      
+0     0000bf14  __TI_CINIT_Limit                     
 0     0000e000  ScopeBuffer                          
 0     0000e400  SciHandle                            
 0     0000e402  SciObj                               

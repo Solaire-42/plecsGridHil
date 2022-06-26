@@ -2,7 +2,7 @@
  * Implementation file for: hil/Controller
  * Generated with         : PLECS 4.6.4
  *                          TI2806x 1.5.4
- * Generated on           : 25 Jun 2022 14:14:34
+ * Generated on           : 26 Jun 2022 17:40:29
  */
 #include "Controller.h"
 #ifndef PLECS_HEADER_Controller_h_
@@ -211,22 +211,22 @@ void Controller_step(int task_id)
 
       /* PWM  : 'Controller/PWM' */
       {
-         PLXHAL_PWM_setDuty(0, Controller_B.Controller[2]);
+         PLXHAL_PWM_setDuty(0, Controller_B.Controller[3]);
       }
       {
-         PLXHAL_PWM_setDuty(1, Controller_B.Controller[3]);
+         PLXHAL_PWM_setDuty(1, Controller_B.Controller[5]);
       }
       {
-         PLXHAL_PWM_setDuty(2, Controller_B.Controller[5]);
+         PLXHAL_PWM_setDuty(2, Controller_B.Controller[2]);
       }
       {
          PLXHAL_PWM_setDuty(3, Controller_B.Controller[4]);
       }
       {
-         PLXHAL_PWM_setDuty(4, Controller_B.Controller[0]);
+         PLXHAL_PWM_setDuty(4, Controller_B.Controller[1]);
       }
       {
-         PLXHAL_PWM_setDuty(5, Controller_B.Controller[1]);
+         PLXHAL_PWM_setDuty(5, Controller_B.Controller[0]);
       }
       /* Powerstage Protection : 'Controller/Power' */
       {
@@ -286,12 +286,12 @@ void Controller_step(int task_id)
          Controller_B.Controller_i1[2] = Controller_D_float[4];
       }
       /* Task transfer to 'Base Task' (Unit Delay) */
-      Controller_D_bool[0] = Controller_B.Controller_i1[2] > 0.f;
-      Controller_D_bool[1] = Controller_B.Controller_i1[2] < 0.f;
-      Controller_D_bool[2] = Controller_B.Controller_i1[0] > 0.f;
-      Controller_D_bool[3] = Controller_B.Controller_i1[0] < 0.f;
+      Controller_D_bool[0] = Controller_B.Controller_i1[2] < 0.f;
+      Controller_D_bool[1] = Controller_B.Controller_i1[2] > 0.f;
+      Controller_D_bool[2] = Controller_B.Controller_i1[1] > 0.f;
+      Controller_D_bool[3] = Controller_B.Controller_i1[0] > 0.f;
       Controller_D_bool[4] = Controller_B.Controller_i1[1] < 0.f;
-      Controller_D_bool[5] = Controller_B.Controller_i1[1] > 0.f;
+      Controller_D_bool[5] = Controller_B.Controller_i1[0] < 0.f;
       if (Controller_errorStatus)
       {
          return;

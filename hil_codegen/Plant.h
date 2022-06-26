@@ -2,7 +2,7 @@
  * Header file for: hil/Plant
  * Generated with : PLECS 4.6.4
  *                  PLECS RT Box 2 2.2.2
- * Generated on   : 25 Jun 2022 16:31:12
+ * Generated on   : 26 Jun 2022 17:55:15
  */
 #ifndef PLECS_HEADER_Plant_h_
 #define PLECS_HEADER_Plant_h_
@@ -80,10 +80,10 @@ typedef struct
    float TransportDelay_4;          /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay1_r2/Configurable Subsystem/Non-zero delay/Transport Delay */
    float TransportDelay_5;          /* Plant/NA2XS(FL)2Y 12/20 kV/Distributed Parameter Line/3-P-Line1/Sub/Transport Delay1_r3/Configurable Subsystem/Non-zero delay/Transport Delay */
    float Delay;                     /* Plant/coupling circuit6/Voltage Source/Delay */
-   float Offset;                    /* Plant/VSI1/Sub-cycle average/HBc/Sub-cycle average/Offset */
+   float Offset;                    /* Plant/VSI1/Sub-cycle average/HBb/Sub-cycle average/Offset */
    float Delay_1;                   /* Plant/coupling circuit5/Voltage Source/Delay */
    float Offset_1;                  /* Plant/VSI1/Sub-cycle average/HBa/Sub-cycle average/Offset */
-   float Offset_2;                  /* Plant/VSI1/Sub-cycle average/HBb/Sub-cycle average/Offset */
+   float Offset_2;                  /* Plant/VSI1/Sub-cycle average/HBc/Sub-cycle average/Offset */
    float p_wm;                      /* Plant/Squirrel-Cage IM/p*wm */
    float Sum;                       /* Plant/VSI1/Sub-cycle average/HBa/Sub-cycle average/Sum */
    float Sum_1;                     /* Plant/VSI1/Sub-cycle average/HBb/Sub-cycle average/Sum */
