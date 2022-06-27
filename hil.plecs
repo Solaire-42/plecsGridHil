@@ -134,7 +134,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [1, 31; 839, 453]
+    Location      [142, 53; 980, 475]
     ZoomFactor    1.50539
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -349,7 +349,7 @@ Plecs {
         Index         "3"
       }
       Schematic {
-        Location      [-1920, -9; 0, 953]
+        Location      [36, 111; 1956, 1073]
         ZoomFactor    1.71498
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -2500,9 +2500,9 @@ Plecs {
         Index         "3"
       }
       Schematic {
-        Location      [1680, 23; 2960, 929]
+        Location      [0, 23; 1920, 985]
         ZoomFactor    0.873846
-        SliderPosition [958, 0]
+        SliderPosition [601, 0]
         ShowBrowser   off
         BrowserWidth  100
         Component {
@@ -10087,34 +10087,8 @@ Plecs {
           Position      [1330, 475]
         } 
         Annotation {
-          Name          "<html><body>\n<p><span style=\" font-size:15px; font-"
-"weight:600;\">ERZEUGER</span></p></body></html>"
-          Position      [200, 30]
-        } 
-        Annotation {
-          Name          base64 "PGh0bWw+PGJvZHk+CjxwPjxzcGFuIHN0eWxlPSIgZm9udC"
-"1zaXplOjE1cHg7IGZvbnQtd2VpZ2h0OjYwMDsiPsOcQkVSVFJBR1VORzwvc3Bhbj48L3A+PC9ib2R"
-"5PjwvaHRtbD4="
-          Position      [415, 30]
-        } 
-        Annotation {
-          Name          "<html><body>\n<p><span style=\" font-size:15px; font-"
-"weight:600;\">OHMSCHER VERBRAUCHER</span></p></body></html>"
-          Position      [865, 30]
-        } 
-        Annotation {
-          Name          "<html><body>\n<p><span style=\" font-size:15px; font-"
-"weight:600;\">DREHSTROM-ASYNCHRONMASCHINE</span></p></body></html>"
-          Position      [1345, 30]
-        } 
-        Annotation {
           Name          "<html><body>\n<p>Anlagenerder</p></body></html>"
           Position      [1835, 475]
-        } 
-        Annotation {
-          Name          "<html><body>\n<p><span style=\" font-size:15px; font-"
-"weight:600;\">HIL - BIDIREKTIONALE LADESTATION</span></p></body></html>"
-          Position      [1865, 30]
         } 
       }
     }
